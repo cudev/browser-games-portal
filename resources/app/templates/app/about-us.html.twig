@@ -1,0 +1,25 @@
+{% extends '@app/default.html.twig' %}
+{% block title %}{{ locale.domain|capitalize }} - {{ translator.translate('about-us') }}{% endblock %}
+{% block main %}
+    <article class="Paper Paper--standalone">
+        {% embed '@app/components/paragraph.html.twig' %}
+            {% block title %}Lorem ipsum{% endblock %}
+            {% block paragraph %}
+                <p>
+                    Suspendisse placerat feugiat lorem non porttitor. Vestibulum at pharetra massa. Sed eget nisi felis.
+                    Mauris a varius nulla, eget interdum purus. Nam fermentum, ipsum vel auctor viverra, ex purus mattis
+                    metus, sit amet tempus odio quam eget risus. Vestibulum congue rhoncus turpis ac posuere. Fusce sit
+                    amet sapien in tellus eleifend varius at vel est. Nullam semper gravida maximus. Proin eros massa,
+                    posuere quis ornare non, commodo id tellus. Nam hendrerit risus a augue elementum, vitae aliquam
+                    lorem ullamcorper. Nullam facilisis, augue eget lobortis pharetra, est tellus accumsan erat,
+                    hendrerit venenatis ex purus pretium purus. Praesent quis libero pellentesque, dictum felis at,
+                    semper quam. Ut vitae ultrices odio. Sed dapibus eros nec erat viverra, vitae gravida risus feugiat.
+                    Vestibulum aliquam fermentum mauris, et pharetra sem finibus at. Donec eros ex, tincidunt ac felis
+                    vitae, mattis interdum massa. Aenean eu laoreet ex, ullamcorper tincidunt libero. Suspendisse
+                    imperdiet mi et malesuada viverra. Donec nec fringilla neque. Duis nec tellus at sem convallis
+                    feugiat. Nulla fringilla nisi sit amet massa accumsan ultricies.
+                </p>
+            {% endblock %}
+        {% endembed %}
+    </article>
+{% endblock %}

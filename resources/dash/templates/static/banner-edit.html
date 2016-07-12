@@ -1,0 +1,27 @@
+<div>
+    <img v-bind:src="response.data.pictureUri">
+    <br>
+    <form v-on:submit.prevent="postData(false)">
+        <label>Picture: <input v-on:change="renderPicture" type="file" accept="image/*"></label><br>
+        <label>Enabled: <input v-model="response.data.enabled" type="checkbox"></label><br>
+        <label>Priority: <input v-model="response.data.priority" type="range" step="1" min="0" max="100">
+            <output v-bind:value="response.data.priority"></output>
+        </label><br>
+        <label>Game:
+            <select v-model="response.data.gameId">
+                <option v-for="game in response.included.games" v-bind:value="game.id">${game.name}</option>
+            </select>
+        </label><br>
+        <fieldset>
+            <legend>Titles</legend>
+            <label v-for="locale in settings.locales">
+                ${locale.language}:
+                <textarea type="text" v-model="response.data.bannerTitles[locale.language].translation"></textarea>
+                <br>
+            </label>
+        </fieldset>
+        <br>
+        <button v-bind:disabled="isControlsDisabled">Save</button>
+        <button v-show="!isNew" v-on:click="remove" type="button" v-bind:disabled="isControlsDisabled">Delete</button>
+    </form>
+</div>

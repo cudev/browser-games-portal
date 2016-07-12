@@ -1,0 +1,92 @@
+@import "generic";
+
+.Account {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.Account-picture {
+  @extend .Unselectable;
+  height: 23rem;
+  width: 23rem;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 5px solid $active;
+  margin: 1.5rem 1.5rem 0 0;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  .Account-picturePlaceholder {
+    font-family: Lato, sans-serif;
+    font-size: 10rem;
+    font-weight: 300;
+    color: $active;
+    padding-bottom: 1rem;
+  }
+
+  img {
+    max-width: 23rem;
+    max-height: 23rem;
+  }
+}
+
+.Account-pictureControl {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  .InputFile {
+    margin: 1.5rem 0;
+  }
+}
+
+.Account-info {
+  display: flex;
+  flex-flow: column;
+  margin: 1.5rem 0 0 1.5rem;
+  flex: 1 60%;
+  table {
+    display: table;
+    width: 100%;
+  }
+}
+
+.Account-name {
+  font-size: 3rem;
+  line-height: 1em;
+  text-transform: uppercase;
+}
+
+.Account-email {
+  margin: 2rem 0 4rem;
+  font-size: 1.5rem;
+}
+
+.Account-property {
+  width: 25%;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  vertical-align: middle;
+}
+
+.Account-value {
+  font-size: 1.5rem;
+  vertical-align: middle;
+  padding: 1rem 0;
+  height: 3rem;
+}
+
+.Account-button {
+  align-self: flex-end;
+}
+
+.Account-control {
+  flex: 1 0 100%;
+  display: flex;
+  align-content: flex-end;
+  align-items: flex-end;
+  justify-content: flex-end;
+}

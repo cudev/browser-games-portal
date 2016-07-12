@@ -1,0 +1,12 @@
+[v-lazy] {
+  opacity: 0;
+}
+
+[lazy=loading] {
+  opacity: 0;
+}
+
+[lazy=loaded] {
+  opacity: 1;
+  transition: opacity .1s ease-in;
+}

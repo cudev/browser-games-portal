@@ -1,0 +1,12 @@
+.ShareBox {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.ShareBox-element {
+  flex: 1 1 100%;
+  padding: .5rem 0 .5rem 0;
+  display: flex;
+  justify-content: center;
+}

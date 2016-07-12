@@ -1,0 +1,16 @@
+<div v-cloak v-show="isPlayerCovered" class="PlayerCover fading">
+    <header class="PlayerCover-headline">
+        {{- translator.translate('player.cover.subscribe.headline') -}}
+    </header>
+    <section class="PlayerCover-underline">
+        {{- translator.translate('player.cover.subscribe.tagline') -}}
+    </section>
+    <section class="PlayerCover-subscribe">
+        <player-subscription :translations="{{ translations|json_encode }}"></player-subscription>
+    </section>
+    <footer class="PlayerCover-corner">
+        <a v-on:click="uncover" class="PlayerCover-skip">
+            {{- translator.translate('player.cover.subscribe.skip') -}}&nbsp;<i class="fa fa-angle-right"></i>
+        </a>
+    </footer>
+</div>

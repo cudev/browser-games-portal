@@ -1,0 +1,26 @@
+<div class="Grid">
+    <div class="Grid-cell">
+        <div class="Block">
+            <div class="Block-header Block-header--apart">
+                <a v-on:click="changeTab('bookmarked')"
+                   v-bind:class="{'is-selected': activeTab === 'bookmarked'}"
+                   class="Block-tab">${translations['games.my.bookmarked']}</a>
+                <a v-on:click="changeTab('played')"
+                   v-bind:class="{'is-selected': activeTab === 'played'}"
+                   class="Block-tab">${translations['games.my.last']}</a>
+            </div>
+            <div v-show="activeTab === 'bookmarked'" class="Block-content">
+                <div v-if="bookmarkedGames.length" class="Cardholder">
+                    <card v-for="game in bookmarkedGames" :game="game"></card>
+                </div>
+                <span v-else class="Block-message">${translations['games.my.bookmarked.empty']}</span>
+            </div>
+            <div v-show="activeTab === 'played'" class="Block-content">
+                <div v-if="playedGames.length" class="Cardholder">
+                    <card v-for="game in playedGames" :game="game"></card>
+                </div>
+                <span v-else class="Block-message">${translations['games.my.last.empty']}</span>
+            </div>
+        </div>
+    </div>
+</div>

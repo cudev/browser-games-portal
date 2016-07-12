@@ -1,0 +1,109 @@
+@import "generic";
+
+.BlockContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: -1.5rem;
+  .Block {
+    margin: 15rem;
+    flex: 1;
+  }
+}
+
+.Block-content {
+
+}
+
+.Block-message {
+  display: block;
+  font-size: 2rem;
+}
+
+.Block-header--apart {
+  margin-bottom: 3rem;
+}
+
+.Block {
+  color: $primary;
+  border-top: 1px solid $primary;
+  min-width: 23rem;
+  margin: 2rem 1.5rem;
+}
+
+.Block--empty {
+  border-top: none;
+}
+
+.Block--withoutMargin {
+  margin: none;
+}
+
+.Block-header {
+  display: flex;
+  padding: 0;
+  font-size: 1.9rem;
+  color: inherit;
+  font-weight: 400;
+  align-items: center;
+  .Block-title {
+    margin: 1rem 0;
+    flex: 1;
+    text-transform: uppercase;
+  }
+
+  .Block-link {
+    //@extend .SlidingUnderline--solid;
+    margin: .5rem 0;
+    text-align: right;
+    color: inherit;
+    line-height: 1.7rem;
+    &:hover .fa-angle-right {
+      @extend .SlideSide;
+    }
+  }
+}
+
+.Block--dark {
+  color: #000;
+  border-top: 1px solid #000;
+}
+
+.Block--secondary {
+  color: #babdc4;
+  .Block-title {
+    font-size: 1.7rem;
+    text-transform: none;
+  }
+}
+
+.Block-tab {
+  text-transform: uppercase;
+  background-color: transparent;
+  color: $primary;
+  padding: 0.5rem 1.5rem;
+  height: 100%;
+  box-sizing: border-box;
+  transition: all .2s ease-in;
+  &:not(:last-child) {
+    margin-right: 1px;
+  }
+  &.is-selected {
+    background-color: $base;
+    color: $secondary;
+  }
+  &:hover {
+    background-color: $active;
+    color: $secondary;
+  }
+}
+
+@media screen and (max-width: $teeny) {
+  .teeny-Block-header--column {
+    flex-flow: column;
+    .Block-tab {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

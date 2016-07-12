@@ -1,0 +1,39 @@
+.Title {
+  height: 100%;
+  text-transform: uppercase;
+
+  .Transparent {
+    fill: transparent;
+  }
+
+  .AnimatedShape {
+    transform: scaleX(0) translate(0);
+    transform-origin: 0 35px;
+    animation: movingPanel 2s forwards;
+    animation-delay: 2s;
+  }
+
+  .Colorful .AnimatedShape:nth-child(1n) {
+    fill: #fff;
+  }
+
+  .Colorful .AnimatedShape:nth-child(2n) {
+    fill: $active;
+  }
+
+  .Colorful .AnimatedShape:nth-child(3n) {
+    fill: $attention;
+  }
+}
+
+@keyframes movingPanel {
+  to {
+    transform: scaleX(1) translate(1px);
+  }
+}
+
+@media screen and (max-width: $tiny) {
+  .Title {
+    display: none;
+  }
+}

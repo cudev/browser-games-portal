@@ -1,0 +1,97 @@
+<div v-bind:class="{'is-active': isAuthModalVisible}" class="Modal">
+    <div class="Modal-body">
+        <div class="Modal-content Modal-content--header">
+            <div class="Modal-logo">Site</div>
+            <a v-on:click="toggleAuthModal" class="Modal-close"></a>
+        </div>
+        <div class="Modal-content">
+            <div class="Block Block--empty">
+                <div class="Modal-socialConnect SocialConnect">
+                    <a href="{{ url('user.sign-in.facebook') }}" class="Social Social--facebook Social--colorized"></a>
+                    <a href="{{ url('user.sign-in.google') }}" class="Social Social--google Social--colorized"></a>
+                    <a href="{{ url('user.sign-in.twitter') }}" class="Social Social--twitter Social--colorized"></a>
+                </div>
+            </div>
+        </div>
+        <div class="Modal-content">
+            <div class="Block">
+                <div class="Block-header Block-header--apart">
+                    <a v-bind:class="{'is-selected': currentModalTab === 'sign-up-form'}"
+                       v-on:click="currentModalTab = 'sign-up-form'"
+                       class="Block-tab">{{ translator.translate('sign.up') }}</a>
+                    <a v-bind:class="{'is-selected': currentModalTab === 'sign-in-form'}"
+                       v-on:click="currentModalTab = 'sign-in-form'"
+                       class="Block-tab">{{ translator.translate('sign.in') }}</a>
+                </div>
+                <div v-show="currentModalTab === 'sign-in-form'">
+                    <div id="sign-in-form" class="Block-content">
+                        <form v-on:submit.prevent="submit('/user/sign-in')" class="Form" method="post"
+                              action="/user/sign-in"
+                        >
+                            <label class="Input-label">
+                                {{ translator.translate('email') }}:
+                            </label>
+                            <div class="Input-field Input-field--validableIcon">
+                                <input v-model="fields.email.value" name="email" type="email" spellcheck="false">
+                            </div>
+
+                            <label class="Input-label">
+                                {{ translator.translate('password') }}:
+                            </label>
+                            <div v-bind:class="{'is-invalid': !fields.password.isValid}"
+                                 class="Input-field Input-field--validableIcon">
+                                <input v-model="fields.password.value" name="password" type="password" spellcheck="false">
+                                    <span v-if="!fields.password.isValid"
+                                          class="Input-validationError">{{ translator.translate('password.wrong') }}</span>
+                            </div>
+                            <button type="submit" class="Input-item Input-item--biggerButton Input-item--resonsive">
+                                {{ translator.translate('sign.in') }}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div v-show="currentModalTab === 'sign-up-form'">
+                    <div id="sign-up-form" class="Block-content">
+                        <form v-on:submit.prevent="submit('/user/sign-up')" class="Form" method="post"
+                              action="/user/sign-up">
+                            <label class="Input-label">
+                                {{ translator.translate('email') }}:
+                            </label>
+                            <div v-bind:class="{'is-invalid': !fields.email.isValid}"
+                                 class="Input-field Input-field--validableIcon">
+                                <input v-model="fields.email.value" name="email" type="email" spellcheck="false">
+                                    <span v-if="fields.email.errors.email"
+                                          class="Input-validationError">{{ translator.translate('email.wrong') }}</span>
+                                    <span v-if="fields.email.errors.callback"
+                                          class="Input-validationError">{{ translator.translate('email.taken') }}</span>
+                            </div>
+                            <label class="Input-label">
+                                {{ translator.translate('password') }}:
+                            </label>
+                            <div v-bind:class="{'is-invalid': !fields.password.isValid}"
+                                 class="Input-field Input-field--validableIcon">
+                                <input v-model="fields.password.value" name="password" type="password" spellcheck="false">
+                                    <span v-if="fields.password.errors.length"
+                                          class="Input-validationError">{{ translator.translate('password.wrong.length') }}</span>
+                                    <span v-if="fields.password.errors.noWhitespace"
+                                          class="Input-validationError">{{ translator.translate('password.wrong.spaces') }}</span>
+                            </div>
+                            <label class="Input-label">
+                                {{ translator.translate('password.repeat') }}:
+                            </label>
+                            <div v-bind:class="{'is-invalid': !fields.passwordAgain.isValid}"
+                                 class="Input-field Input-field--validableIcon">
+                                <input v-model="fields.passwordAgain.value" name="password-again" type="password" spellcheck="false">
+                                    <span v-if="fields.passwordAgain.errors.equals"
+                                          class="Input-validationError">{{ translator.translate('password.wrong.match') }}</span>
+                            </div>
+                            <button class="Input-item Input-item--biggerButton Input-item--resonsive" type="submit">
+                                {{ translator.translate('sign.up') }}
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

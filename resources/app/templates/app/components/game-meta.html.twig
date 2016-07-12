@@ -1,0 +1,30 @@
+<div{% if mainEntity|default(false) %} itemprop="mainEntity" {% endif %} itemscope itemtype="http://schema.org/SoftwareApplication">
+    <meta itemprop="name" content="{{ game.name }}">
+    <meta itemprop="applicationCategory" content="Game">
+    <meta itemprop="image" content="{{ game.thumbnail }}">
+    {% if not mainEntity|default(false) %}
+        <link itemprop="mainEntityOfPage" href="{{ url('game.play', {'gameSlug':game.slug}) }}">
+    {% endif %}
+    <link itemprop="url" href="{{ url('game.play', {'gameSlug':game.slug}) }}">
+    {% for tag in game.tags if tag.enabled %}
+        <meta itemprop="applicationSubCategory" content="{{ tag.name(locale.language) }}">
+    {% endfor %}
+    {% for system in game.supportedOperatingSystems %}
+        <meta itemprop="operatingSystem" content="{{ system }}">
+    {% endfor %}
+    <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+        <meta itemprop="price" content="0">
+        <meta itemprop="priceCurrency" content="USD">
+        <link itemprop="availability" href="http://schema.org/InStock">
+    </span>
+    <meta itemprop="description" content="{{ game.description(locale.language) }}">
+    {% if game.ratings.count > 0 %}
+        <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+            <meta itemprop="ratingValue" content="{{ game.averageRating }}">
+            <meta itemprop="ratingCount" content="{{ game.ratings.count }}">
+            {# todo: might be we need to insert proper values here, don't know yet #}
+            <meta itemprop="worstRating" content="{{ game.worstRating }}">
+            <meta itemprop="bestRating" content="{{ game.bestRating }}">
+        </div>
+    {% endif %}
+</div>

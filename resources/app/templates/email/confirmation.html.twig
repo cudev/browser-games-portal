@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-color: #13254b;
+        }
+
+        body {
+            margin: 0;
+            font-family: Helvetica, Arial, Verdana, Trebuchet MS;
+        }
+
+        a {
+            text-decoration: underline;
+            color: inherit;
+        }
+
+        p {
+            line-height: 25px;
+            font-size: 15px;
+        }
+
+        .Banner {
+            border-top: 1px solid #ffffff;
+        }
+
+        .Banner-header {
+            color: #ffffff;
+            font-size: 15px;
+            padding: 10px 0;
+        }
+
+        .Banner-image {
+            max-width: 100%;
+        }
+
+        .Table {
+            max-width: 750px;
+        }
+
+        .Footer,
+        .Header {
+            background-color: #13254b;
+        }
+
+        .Footer {
+            padding: 15px 0;
+            height: 100%;
+            color: #ffffff;
+        }
+
+        .Footer-section {
+            padding: 10px 0;
+        }
+
+        .Footer-section--secondary {
+            border-top: 1px solid #ffffff;
+            color: #9a9b9c;
+        }
+
+        .Footer-section--secondary a {
+            text-decoration: none;
+        }
+
+        .Body {
+            background-color: #023b5d;
+            padding: 15px 0 60px 0;
+            color: #ffffff;
+        }
+
+        .Headline {
+            font-weight: bold;
+            padding: 45px 0 10px 0;
+        }
+
+        .SiteName {
+            color: #ffffff;
+            font-size: 20px;
+            text-align: left;
+            width: 95%;
+            font-weight: bold;
+        }
+
+        .SiteName a {
+            text-decoration: none;
+        }
+
+        .Footer-link {
+            text-align: center;
+        }
+
+        .Button {
+            font-family: Helvetica, Arial, sans-serif;
+            color: #023b5d;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 12px 18px;
+            border: 1px solid #06effe;
+            display: inline-block;
+        }
+
+        .Expander {
+            height: 100%;
+            background-color: #023b5d;
+        }
+    </style>
+<body>
+<table class="Main" cellspacing="0" cellpadding="10" border="0" width="100%" height="100%">
+    <tr>
+        <td class="Header" align="center">
+            <table class="Table" cellspacing="0" cellpadding="0" border="0" width="90%">
+                <tr>
+                    <td>
+                        <a href="{{ url('home') }}">
+                            <img src="{{ urlPackage.getUrl('letter-logo.png') }}" alt="{{ locale.domain|upper }}">
+                        </a>
+                    </td>
+                    <td class="SiteName">
+                        <a href="{{ url('home') }}">{{ locale.domain|upper }}</a>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="Body" align="center">
+            <table class="Table" cellspacing="0" cellpadding="0" border="0" width="90%">
+                <tr>
+                    <td class="Headline">
+                        {{ translator.translate('email.confirmation.subject', {'domain': locale.domain|capitalize}) }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p>
+                            {{- translator.translate('email.confirmation.explanation', {
+                                'domain': locale.domain|capitalize,
+                                'username': user.name
+                            }) -}}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left">
+                        <table>
+                            <tr>
+                                <td bgcolor="#06effe">
+                                    <a href="{{ url('email.confirm', {'cryptedEmail': cryptedEmail|url_encode}) }}"
+                                       class="Button">
+                                        {{- translator.translate('email.confirmation.confirm')|capitalize -}}
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        <p>{{ translator.translate('email.confirmation.greeting') }}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td class="Expander"></td>
+    </tr>
+    {% if not isInBrowser|default(false) %}
+        <tr>
+            <td class="Footer" align="center">
+                <table class="Table" width="90%">
+                    <tr>
+                        <td class="Footer-section">
+                            {% set link = '<a href="' ~ url('letter', {'letterType': letterType, 'cryptedEmail': cryptedEmail|url_encode }) ~ '">link</a>' %}
+                            {{ translator.translate('email.browser', {'link': link})|raw }}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    {% endif %}
+</table>
+</body>
+</html>

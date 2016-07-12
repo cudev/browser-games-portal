@@ -1,0 +1,15 @@
+.Form {
+  .Input-field {
+    height: 3rem;
+    padding-bottom: 1.5rem;
+    input {
+      border-color: $base;
+      &:focus {
+        border-color: $active;
+      }
+    }
+  }
+  > :last-child {
+    margin-top: 5rem;
+  }
+}

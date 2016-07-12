@@ -1,0 +1,94 @@
+.Modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, .5);
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.Modal-socialConnect {
+  margin-top: 1rem;
+}
+
+.Modal.is-active {
+  display: flex;
+}
+
+.u-Modal--unscroll {
+  overflow: hidden;
+  width: 100%;
+}
+
+.Modal-body {
+  z-index: 10;
+  color: $primary;
+  padding: 2.5rem 1.5rem;
+  box-sizing: content-box;
+  border: 1px solid $active;
+  overflow: auto;
+  background-color: $secondary;
+}
+
+.Modal-content {
+
+}
+
+.Modal-logo {
+  height: 4rem;
+  display: inline-block;
+}
+
+.Modal-content--header {
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0 1.5rem;
+}
+
+.Modal-close {
+  float: right;
+  color: $primary;
+  &:before {
+    content: "\f05c";
+    font-family: FontAwesome;
+    font-size: 3rem;
+    font-weight: normal;
+  }
+  &:hover {
+    color: $active;
+  }
+}
+
+@media screen and (min-width: $teeny) {
+  .Modal-body {
+    min-width: 49rem;
+  }
+}
+
+@media screen and (max-width: $teeny) {
+  .Modal {
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .Modal-body {
+    min-height: 100%;
+  }
+}
+
+@media screen and (max-height: $popupHeight) {
+  .Modal {
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .Modal-body {
+    min-height: 100%;
+  }
+}

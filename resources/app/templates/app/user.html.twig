@@ -1,0 +1,30 @@
+{% extends '@app/default.html.twig' %}
+
+{% block main %}
+    <div class="Grid small-Grid--full">
+        <div class="Grid-cell">
+            <div class="Block">
+                <div v-cloak class="Block-content fading">
+                    <account :user.sync="user" :translations="{{ translations|json_encode }}"></account>
+                </div>
+            </div>
+        </div>
+        <div class="Grid-cell">
+            <div class="Block">
+                <div class="Block-header">
+                    <h2 class="Block-title">{{ translator.translate('games.recommended') }}</h2>
+                </div>
+                <div class="Block-content">
+                    <div class="Cardholder tiny-Cardholder--responsive">
+                        {% for game in recommendedGames %}
+                            {% include "@app/components/card-game.html.twig" with {'game': game} %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div v-cloak class="fading">
+        <game-tabs :translations="{{ translations|json_encode }}"></game-tabs>
+    </div>
+{% endblock %}

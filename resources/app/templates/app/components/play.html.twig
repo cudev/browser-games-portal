@@ -1,0 +1,53 @@
+<div class="Grid">
+    <div class="Grid-cell">
+        <div class="Block">
+            <h1 class="GameTitle">{{ game.name }}</h1>
+        </div>
+    </div>
+</div>
+<div class="Grid">
+    <div class="Grid-cell">
+        <div class="Block Block--empty">
+            <div class="Player">
+                {% include '@app/components/game-meta.html.twig' with {'game': game, 'mainEntity': true} %}
+                <header class="Player-header">
+                    <div class="Player-buttonGroup Player-buttonGroup--pullLeft">
+                        <div v-on:click="togglePlayerTab('info')"
+                             class="Player-infoButton Player-button--alignLeft"></div>
+                        <div v-cloak class="Player-ratingButton fading">
+                            <rating :rating="{{ game.averageRating }}"
+                                    :game-id="{{ game.id }}"
+                                    :user="user">
+                            </rating>
+                        </div>
+                        <a href="#comments" class="Player-commentButton"></a>
+
+                        <div v-on:click="togglePlayerTab('share')" class="Player-shareButton"></div>
+                    </div>
+                    <div class="Player-buttonGroup Player-buttonGroup--pullRight">
+                        {#<div data-player-action="zoomMore" class="Player-zoomMoreButton"></div>#}
+                        {#<div data-player-action="zoomLess" class="Player-zoomLessButton"></div>#}
+                        <div v-if="isScreenfullEnabled" v-on:click="goFullScreen" class="Player-expandButton"></div>
+                    </div>
+                </header>
+                <div id="game" class="Player-game">
+                    {% include "@app/components/player-cover.html.twig" %}
+                    <iframe seamless scrolling="no" frameborder="0" webkitallowfullscreen="true"
+                            mozallowfullscreen="true" allowfullscreen="true" webkit-playsinline="true"
+                            height="{{ game.height }}" width="{{ game.width }}"
+                            src="{{ game.url }}"></iframe>
+                    <div v-cloak v-show="visiblePlayerTabs.info" class="Player-gameInfo">
+                        <header>{{ game.name }}</header>
+                        <rating :rating="{{ game.averageRating }}" :readonly="true"></rating>
+                        <span class="Player-gameInfoPlayed">{{ translator.translate('game.times.played', {'plays': game.plays}) }}</span>
+
+                        <p>{{ game.description(locale.language) }}</p>
+                    </div>
+                    <div v-cloak v-show="visiblePlayerTabs.share" class="Player-gameInfo">
+                        {% include "@app/components/share-box.html.twig" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

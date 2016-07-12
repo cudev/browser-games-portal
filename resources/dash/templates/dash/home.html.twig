@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <title>Dashboard</title>
+
+    <link rel="icon" href="{{ urlPackage.getUrl('/favicon.ico') }}" type="image/x-icon">
+    <link href="{{ urlPackage.getUrl('/stylesheets/dash.css') }}" rel="stylesheet">
+</head>
+<body settings="{{ settings|json_encode }}">
+
+<div class="Navigation">
+    <ul class="Navigation-items">
+        <li class="Navigation-item"><a href="/admin/">Home</a></li>
+        <li class="Navigation-item"><a href="/admin/locales">Locales</a></li>
+        <li class="Navigation-item"><a href="/admin/translation">Translation</a></li>
+        <li class="Navigation-item"><a href="/admin/users">Users</a></li>
+    </ul>
+    <h2 class="Navigation-header">Games</h2>
+    <ul class="Navigation-items">
+        <li class="Navigation-item"><a href="/admin/games/new">Add new</a></li>
+        <li class="Navigation-item"><a href="/admin/games?limit=100">All</a></li>
+        <li class="Navigation-item"><a href="/admin/tags">Tags</a></li>
+        <li class="Navigation-item"><a href="/admin/banners">Banners</a></li>
+    </ul>
+    <h2 class="Navigation-header">Providers</h2>
+    <ul class="Navigation-items">
+        <li class="Navigation-item"><a href="/admin/providers/1">Spilgames</a></li>
+    </ul>
+</div>
+<div v-cloak class="content">
+    <component
+            :is="view"
+            :context="context"
+            :settings="settings"
+            transition="fade"
+            transition-mode="out-in"
+    >
+        Loading...
+    </component>
+    <message-box :text="message.text" :is-success="message.isSuccess"></message-box>
+</div>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.17/vue.js"></script>
+<script src="{{ urlPackage.getUrl('/scripts/dash.js') }}"></script>
+</body>
+</html>

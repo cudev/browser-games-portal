@@ -1,0 +1,58 @@
+.SocialConnect {
+  display: flex;
+  .Social {
+    margin-right: 1.5rem;
+  }
+}
+
+.Social {
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid $primary;
+  font-family: fontAwesome;
+  width: 6rem;
+  height: 6rem;
+  color: $primary;
+  font-size: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  transition: all 200ms linear;
+  &.Social--twitter:before {
+    content: "\f099";
+  }
+  &.Social--facebook:before {
+    content: "\f09a";
+  }
+  &.Social--googlePlus:before {
+    content: "\f0d5";
+  }
+  &.Social--google:before {
+    content: "\f1a0";
+  }
+  &:hover {
+    border-color: $active;
+    color: $active;
+  }
+}
+
+.Social--colorized {
+  &.Social--google {
+    background-color: $googleplus;
+  }
+
+  &.Social--facebook {
+    background-color: $facebook;
+  }
+
+  &.Social--twitter {
+    background-color: $twitter;
+  }
+
+  &:hover {
+    color: $secondary;
+    background-color: $active;
+  }
+}

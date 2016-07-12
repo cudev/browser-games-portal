@@ -1,0 +1,59 @@
+// Measures
+$cardHeight: 160px;
+$cardWidth: 230px;
+$margin: 15px;
+$scrollbarWidth: 20px;
+
+$oneCard: $cardWidth + $margin * 2;
+$twoCards: ($cardWidth + $margin * 2) * 2;
+$threeCards: ($cardWidth + $margin * 2) * 3;
+$fourCards: ($cardWidth + $margin * 2) * 4;
+$fiveCards: ($cardWidth + $margin * 2) * 5;
+$sixCards: ($cardWidth + $margin * 2) * 6;
+
+$teeny: $twoCards + $scrollbarWidth;
+$tiny: $threeCards + $scrollbarWidth;
+$small: $fourCards + $scrollbarWidth;
+$medium: $fiveCards + $scrollbarWidth;
+$large: 1580px;
+
+$popupHeight: 650px; // below this height we must show popup fullscreen
+
+/* Footer Size */
+$footerSize: 313px;
+
+/* Font Weight */
+$weightNormal: 400;
+$weightBold: 700;
+
+// Application colors:
+$primary: #424242;
+$base: #7a7a7a;
+$active: #424242;
+$secondary: #82a6cc;
+$attention: #e53929;
+$deprioritized: #424242;
+
+// Social networks' colors:
+$twitter: #00aced;
+$facebook: #3b5998;
+$googleplus: #dd4b39;
+$pinterest: #cb2027;
+$linkedin: #007bb6;
+$youtube: #bb0000;
+$vimeo: #aad450;
+$tumblr: #32506d;
+$instagram: #517fa4;
+$flickr: #ff0084;
+$dribbble: #ea4c89;
+$quora: #a82400;
+$foursquare: #0072b1;
+$forrst: #5B9A68;
+$vk: #45668e;
+$wordpress: #21759b;
+$stumbleupon: #EB4823;
+$yahoo: #7B0099;
+$blogger: #fb8f3d;
+$soundcloud: #ff3a00;
+
+$fa-font-path: '../../../node_modules/font-awesome/fonts'

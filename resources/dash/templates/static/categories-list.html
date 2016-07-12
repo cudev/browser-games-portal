@@ -1,0 +1,23 @@
+<div>
+    <a v-bind:href="context.path + '/crawl'">Crawl categories</a>
+    <hr>
+    <pagination :current="query.page" :total="response.pages"></pagination>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-if="response.data.length" v-for="category in response.data" track-by="$index">
+            <td><a href="/admin/categories/${category.id}">${category.name}</a></td>
+        </tr>
+        <tr v-if="!response.data.length">
+            <td>No items.</td>
+        </tr>
+        </tbody>
+    </table>
+    <pagination :current="query.page" :total="response.pages"></pagination>
+
+    <button v-on:click="copyToTags">Copy all categories to tags</button>
+</div>

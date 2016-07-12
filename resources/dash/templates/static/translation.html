@@ -1,0 +1,12 @@
+<div>
+    <form v-on:submit.prevent="putData(response.data)">
+        <fieldset v-for="staticContent in response.data">
+            <legend>${staticContent.accessKey}</legend>
+            <label v-for="staticContentData in staticContent.staticContentData">
+                <span>${staticContentData.locale.language}:</span>
+                <textarea type="text" v-model="staticContentData.translation"></textarea>
+            </label>
+        </fieldset>
+        <button>Save</button>
+    </form>
+</div>

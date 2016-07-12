@@ -1,0 +1,18 @@
+<div class="Card Card--game">
+    <a v-lazy:background-image="game.thumbnail" href="/game/${ game.slug }" class="Card-cover"></a>
+    <div class="Card-extra">
+        <div class="Card-title u-ellipsis">${ game.name }</div>
+        <a href="/game/${ game.slug }" class="Card-expansion">
+            <div class="Card-rating">
+                <rating :rating="game.rating" :readonly="true"></rating>
+            </div>
+            <span class="Card-secondary Card-secondary--clock">
+                ${ game.created|capitalize }
+            </span>
+            <span class="Card-secondary Card-secondary--check">
+                ${ game.plays }
+            </span>
+            <p class="Card-primary">${ game.description }</p>
+        </a>
+    </div>
+</div>

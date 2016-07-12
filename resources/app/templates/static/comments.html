@@ -1,0 +1,103 @@
+<div>
+    <div v-if="user" class="Comment Comment--create">
+        <div class="Comment-picture">
+            <img v-if="user.pictureUrl" v-bind:src="user.pictureUrl">
+            <span v-else class="Comment-picturePlaceholder">${initials(user.name)}</span>
+        </div>
+        <div class="Comment-container">
+            <div class="Comment-header">
+                <div class="Comment-author">${ user.name }</div>
+            </div>
+            <div class="Comment-body">
+                <textarea v-model="newComment" class="Comment-editor"
+                          v-bind:placeholder="translations['comment.placeholder']"></textarea>
+            </div>
+            <button v-on:click="addComment" class="Input-item--biggerButton">${translations['comment.create']}</button>
+        </div>
+    </div>
+    <div v-else class="UnauthorizedBox">
+        ${translations['comment.unauthorized']}
+        <button v-on:click="notifyToOpenModal('sign-up-form')" class="Input-item--biggerButton">
+            ${translations['sign.up']}
+        </button>
+        <button v-on:click="notifyToOpenModal('sign-in-form')" class="Input-item--biggerButton">
+            ${translations['sign.in']}
+        </button>
+    </div>
+    <div v-cloak class="CommentList">
+        <div class="Comment-navigation">
+            <div v-if="comments.length > 0" class="Pagination">
+                <li v-on:click="turnPageBackwards" class="Pagination-item Pagination-item--arrow">
+                    <a><i class="fa fa-angle-left"></i></a>
+                </li>
+                <template v-for="item in pagination">
+                    <div v-if="!item.isSkipped" v-bind:class="{ 'is-active': currentPage === item.page }"
+                         v-on:click="turnPage(item.page)"
+                         class="Pagination-item">
+                        ${ item.page }
+                    </div>
+                    <div v-else class="Pagination-item is-disabled">...</div>
+
+                </template>
+                <div v-on:click="turnPageForwards" class="Pagination-item Pagination-item--arrow">
+                    <a><i class="fa fa-angle-right"></i></a>
+                </div>
+                <div class="Pagination-info">${ currentPage } / ${ totalPages }</div>
+            </div>
+        </div>
+        <div v-for="comment in comments" class="Comment">
+            <div class="Comment-picture">
+                <img v-if="comment.picture" v-bind:src="comment.picture">
+                <span v-else class="Comment-picturePlaceholder">${initials(comment.author)}</span>
+            </div>
+            <div class="Comment-container">
+                <div class="Comment-header">
+                    <div class="Comment-author">${ comment.author }</div>
+                    <div v-show="editing !== comment.id" v-if="user && comment.author === user.name" class="Comment-controls">
+                        <a v-on:click="openEditor(comment)" class="Comment-controlItem">
+                            <i class="fa fa-pencil"></i>
+                        </a>
+                    </div>
+                    <div v-show="editing === comment.id"
+                         v-if="user && comment.author === user.name"
+                         class="Comment-controls Comment-controls--visible"
+                    >
+                        <a v-on:click="closeEditor" class="Comment-controlItem">
+                            <i class="fa fa-undo"></i>
+                        </a>
+                        <a v-on:click="updateComment(comment)" class="Comment-controlItem">
+                            <i class="fa fa-check"></i>
+                        </a>
+                    </div>
+                    <div class="Comment-date">${ comment.created }</div>
+                </div>
+                <div v-show="editing === comment.id" v-if="user && comment.author === user.name" class="Comment-body">
+                    <textarea v-on:input="updateSize" v-bind:rows="editingRows" v-model="edited" class="Comment-editor"></textarea>
+                </div>
+                <div v-show="editing !== comment.id" class="Comment-body">
+                    ${ comment.body }
+                </div>
+            </div>
+        </div>
+        <div v-show="comments.length === 4" class="Comment-navigation">
+            <div class="Pagination">
+                <li v-on:click="turnPageBackwards" class="Pagination-item Pagination-item--arrow">
+                    <a><i class="fa fa-angle-left"></i></a>
+                </li>
+                <template v-for="item in pagination">
+                    <div v-if="!item.isSkipped" v-bind:class="{ 'is-active': currentPage === item.page }"
+                         v-on:click="turnPage(item.page)"
+                         class="Pagination-item">
+                        ${ item.page }
+                    </div>
+                    <div v-else class="Pagination-item is-disabled">...</div>
+
+                </template>
+                <div v-on:click="turnPageForwards" class="Pagination-item Pagination-item--arrow">
+                    <a><i class="fa fa-angle-right"></i></a>
+                </div>
+                <div class="Pagination-info">${ currentPage } / ${ totalPages }</div>
+            </div>
+        </div>
+    </div>
+</div>

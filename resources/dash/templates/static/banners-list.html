@@ -1,0 +1,28 @@
+<div>
+    <div>
+        <a href="/admin/banners/new">New banner</a>
+    </div>
+    <pagination :current="query.page" :total="response.pages"></pagination>
+    <table>
+        <thead>
+        <tr>
+            <th>Picture</th>
+            <th>Title</th>
+            <th>Game</th>
+            <th>Priority</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-if="response.data.length" v-for="banner in response.data" track-by="$index">
+            <td><img v-bind:src="banner.pictureUri"></td>
+            <td><a href="/admin/banners/${banner.id}">${banner.bannerTitles['en'].translation}</a></td>
+            <td>${banner.game.name}</td>
+            <td>${banner.priority}</td>
+        </tr>
+        <tr v-if="!response.data.length">
+            <td colspan="4">No items.</td>
+        </tr>
+        </tbody>
+    </table>
+    <pagination :current="query.page" :total="response.pages"></pagination>
+</div>

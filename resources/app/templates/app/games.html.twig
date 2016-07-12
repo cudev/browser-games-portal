@@ -1,0 +1,94 @@
+{% extends '@app/default.html.twig' %}
+
+{% block title %}
+    {% if tag %}
+        {{ translator.translate('site.title.tag', {'domain': locale.domain|capitalize, 'tag': tag.name(locale.language)|capitalize}) }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block meta %}
+    {% if tag %}
+        <meta name="description" content="{{ tag.description(locale.language) }}">
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block main %}
+    <div class="Grid small-Grid--full">
+        {% if banner %}
+            <div class="Grid-cell">
+                <div class="Block">
+                    <div class="Block-header">
+                        <div class="Block-title">
+                            {% if tag %}
+                                {{ translator.translate('game.featured.tag', {'tag': tag.name(locale.language)}) }}
+                            {% else %}
+                                {{ translator.translate('game.featured') }}
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="Block-content">
+                        {% include "@app/components/banner.html.twig" %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="Grid-cell">
+            <div class="Block">
+                <div class="Block-header">
+                    <h2 class="Block-title">{{ translator.translate('games.last.played') }}</h2>
+                </div>
+                <div class="Block-content">
+                    <div class="Cardholder tiny-Cardholder--responsive">
+                        {% for game in playedGames %}
+                            {% if game %}
+                                {% include "@app/components/card-game.html.twig" with {'game': game} %}
+                            {% else %}
+                                {% include "@app/components/card-game-empty.html.twig" %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Grid small-Grid--full">
+        <div class="Grid-cell">
+            <div class="Block">
+                <div id="filter" class="Block-header teeny-Block-header--column Block-header--apart">
+                    {% set slug = tag ? tag.slug(locale.language) : 'all' %}
+                    <a href="{{ url('tag', {'tagSlug': slug, 'order': 'top'}) }}"
+                       class="Block-tab {{ 'top' == order|lower ? 'is-selected' }}">
+                        {{- translator.translate('games.most.rated') -}}
+                    </a>
+                    <a href="{{ url('tag', {'tagSlug': slug, 'order': 'new'}) }}"
+                       class="Block-tab {{ 'new' == order|lower ? 'is-selected' }}">
+                        {{- translator.translate('games.most.recent') -}}
+                    </a>
+                    <a href="{{ url('tag', {'tagSlug': slug, 'order': 'popular'}) }}"
+                       class="Block-tab {{ 'popular' == order|lower ? 'is-selected' }}">
+                        {{- translator.translate('games.most.played') -}}
+                    </a>
+                    <a href="{{ url('tag', {'tagSlug': slug, 'order': 'discussed'}) }}"
+                       class="Block-tab {{ 'discussed' == order|lower ? 'is-selected' }}">
+                        {{- translator.translate('games.most.discussed') -}}
+                    </a>
+                </div>
+                <div class="Block-content">
+                    <div class="Cardholder tiny-Cardholder--responsive">
+                        {% for game in games %}
+                            {% include "@app/components/card-game.html.twig" with {'game': game} %}
+                            {% include "@app/components/game-meta.html.twig" with {'game': game} %}
+                        {% endfor %}
+                    </div>
+                    {% if games.totalPages > 1 %}
+                        {% include "@app/components/pagination.html.twig" with {'paginator': games} %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

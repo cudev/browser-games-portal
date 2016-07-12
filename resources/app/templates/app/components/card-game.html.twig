@@ -1,0 +1,15 @@
+{% embed "@app/components/card.html.twig" %}
+    {% block bookmark %}
+        <div v-on:click="toggleBookmark" data-action-bookmark="{{ game.id }}"
+             class="Card-bookmark{% if user %}{% if game in user.bookmarkedGames %} is-bookmarked{% endif %}{% endif %}"></div>
+    {% endblock %}
+    {% block cover %}
+        <a v-lazy:background-image="'{{ game.thumbnail }}'" href="{{ url('game.play', {'gameSlug': game.slug }) }}" class="Card-cover"></a>
+    {% endblock %}
+    {% block title %}{{ game.name }}{% endblock %}
+    {% block created %}{{ game.createdAt.diffForHumans|capitalize }}{% endblock %}
+    {% block played %}{{ translator.translate('game.times.played', {'plays': game.plays}) }}{% endblock %}
+    {% block description %}
+        {{ game.description(locale.language) }}
+    {% endblock %}
+{% endembed %}

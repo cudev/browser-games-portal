@@ -1,0 +1,66 @@
+.Pagination {
+  display: flex;
+  align-items: baseline;
+  font-size: 2rem;
+  .Pagination-item:not(:last-child) {
+    margin-right: 1px;
+  }
+}
+
+.Pagination--standalone {
+  margin: 1rem 0;
+}
+
+.Pagination-item {
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  background-color: $secondary;
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: .6rem 0 0;
+  text-align: center;
+  color: $active;
+  border: 1px solid transparent;
+  font-size: 1.5rem;
+  transition: all 150ms linear;
+  &:hover {
+    border-color: $active;
+    color: $active;
+  }
+  a {
+    color: inherit;
+    cursor: inherit;
+  }
+}
+
+.Pagination-item.is-active {
+  background-color: $active;
+  color: $secondary;
+  &:hover {
+    cursor: default;
+  }
+}
+
+.Pagination-item.is-disabled {
+  cursor: default;
+  &:hover {
+    border: 1px solid transparent;
+    cursor: default;
+    color: $secondary;
+  }
+}
+
+.Pagination-item--arrow {
+  background-color: transparent;
+  color: $active;
+  font-size: 2rem;
+  &:hover {
+    border-color: transparent;
+  }
+}
+
+.Pagination-info {
+  flex: 1;
+  text-align: right;
+}

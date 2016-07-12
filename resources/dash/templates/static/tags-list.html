@@ -1,0 +1,44 @@
+<div>
+    <a href="/admin/tags/new">New</a>
+    <hr>
+    <pagination :current="query.page" :total="pages"></pagination>
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Description</th>
+            <th>Enabled</th>
+            <th>Featured</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="tag in response.data" track-by="$index">
+            <td>
+                <span v-for="tagName in tag.tagNames">
+                    <a v-if="tagName.translation" href="/admin/tags/${tag.id}">
+                        ${tagName.locale.language}:
+                        ${tagName.translation}
+                    </a>
+                </span>
+            </td>
+            <td>
+                <span v-for="tagName in tag.tagNames">
+                    ${tagName.locale.language}: ${tagName.slug}
+                </span>
+            </td>
+            <td>
+                <span v-for="tagName in tag.tagNames">
+                    ${tagName.locale.language}: ${tagName.description}
+                </span>
+            </td>
+            <td><input v-model="tag.enabled" type="checkbox" disabled></td>
+            <td><input v-model="tag.featured" type="checkbox" disabled></td>
+        </tr>
+        <tr v-if="!response.data.length">
+            <td colspan="5">No items.</td>
+        </tr>
+        </tbody>
+    </table>
+    <pagination :current="query.page" :total="pages"></pagination>
+</div>

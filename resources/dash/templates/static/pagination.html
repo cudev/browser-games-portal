@@ -1,0 +1,6 @@
+<div>
+    <span v-if="total > 1" v-for="page in pages()" track-by="$index">
+        <a v-on:click="notifyChanges('page', page)"  v-if="page !== null">${page}</a>
+        <span v-else>...</span>
+    </span>
+</div>

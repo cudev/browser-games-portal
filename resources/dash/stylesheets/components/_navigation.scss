@@ -1,0 +1,29 @@
+.Navigation {
+  position: fixed;
+  width: 20rem;
+  height: 100%;
+  border-right: 1px solid indianred;
+  color: indianred;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.Navigation-items {
+  list-style: none;
+}
+
+.Navigation-item {
+  margin: .5rem 0;
+}
+
+.Navigation-header {
+  color: black;
+  font-size: 2rem;
+  margin-top: 2rem;
+  padding: .5rem 0;
+  border-bottom: 1px solid #dedede;
+}

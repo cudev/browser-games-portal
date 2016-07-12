@@ -1,0 +1,255 @@
+@import "generic";
+
+.Navigation {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 1.5rem 0;
+}
+
+.Navigation-logo {
+  display: flex;
+  flex: 0 1 auto;
+  height: 8.5rem;
+  font-size: 4.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.Navigation-logoTitle {
+  color: $primary;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: 600;
+  padding-top: 2rem;
+}
+
+.Navigation-social {
+  flex: 1 1 100%;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.6rem;
+  color: $active;
+  align-items: center;
+  height: 3rem;
+  a {
+    font-size: inherit;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: inherit;
+    margin: 0 1rem;
+    @extend .SlidingUnderline--solid;
+  }
+}
+
+.Navigation-picture {
+  @extend .Unselectable;
+  height: 3rem;
+  width: 3rem;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  justify-content: center;
+  img {
+    max-width: 3rem;
+    max-height: 3rem;
+  }
+  .Navigation-picturePlaceholder {
+    font-family: Lato, sans-serif;
+    font-weight: 300;
+    color: $active;
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+  }
+}
+
+.Navigation-picture--rounded {
+  border-radius: 50%;
+  border: 2px solid $active;
+}
+
+.Navigation-list {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 1rem;
+  .Navigation-item {
+    white-space: nowrap;
+    height: 10rem;
+    display: flex;
+    padding: 0 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    .Navigation-icon {
+      transition: all .1s ease-in;
+      color: $primary;
+    }
+  }
+}
+
+.Navigation-item.is-opened {
+  background-color: $secondary;
+  .Navigation-icon {
+    transform: rotateZ(180deg);
+  }
+}
+
+.Navigation-link {
+  color: $primary;
+  font-size: 2.4rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding-top: 2rem;
+  display: inline-block;
+  user-select: none;
+  @extend .SlidingUnderline--solid;
+
+  &.Navigation-link--dashed {
+    @extend .SlidingUnderline--dashed;
+  }
+}
+
+.NavigationBox {
+  flex: 1 0 100%;
+  background-color: $secondary;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1.5rem 0;
+  .NavigationBox-item {
+    flex: 0 0 25.5rem;
+    overflow: hidden;
+    color: $primary;
+    font-size: 20px;
+    text-decoration: none;
+    display: block;
+    padding: 1rem;
+    box-sizing: border-box;
+    transition: all 100ms ease-in;
+    &:hover {
+      background-color: $active;
+      color: $secondary;
+    }
+  }
+  &:after {
+    content: "";
+    flex: auto;
+  }
+}
+
+@media screen and (min-width: $small) and (max-width: $large) {
+  .Navigation-social {
+    margin-bottom: -8rem;
+    align-self: center;
+  }
+
+  .Navigation-link {
+    font-size: 1.7rem;
+  }
+
+  .Navigation-list {
+    flex: 1 0 100%;
+    justify-content: space-between;
+    .Navigation-item {
+      height: 5rem;
+    }
+  }
+
+  .NavigationBox {
+    .NavigationBox-item {
+      flex: 0 0 25.2rem;
+    }
+  }
+}
+
+@media screen and (max-width: $small) {
+  .Navigation-logo {
+    height: 5rem;
+    flex: 0 1 5rem;
+    .Navigation-logoTitle {
+      font-size: 2.5rem;
+      padding-top: 1rem;
+    }
+  }
+
+  .Navigation-social {
+    margin-bottom: -4rem;
+    padding-top: 1rem;
+  }
+
+  .Navigation-list {
+    justify-content: space-between;
+    .Navigation-item {
+      padding: 0 1.1rem;
+      height: 5rem;
+      .Navigation-link {
+        font-size: 1.4rem;
+      }
+      .Navigation-icon {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .NavigationBox {
+    .NavigationBox-item {
+      flex: 0 0 25rem;
+    }
+  }
+}
+
+@media screen and (max-width: $tiny) {
+  .Navigation-list {
+    flex: 1;
+  }
+  .Navigation-logo {
+    flex: 0 1 5rem;
+    .Navigation-logoTitle {
+      display: none;
+    }
+  }
+
+  .Navigation-list {
+    flex: 1 1 100%;
+    white-space: nowrap;
+    > :not(:last-child) {
+      display: none;
+    }
+
+    justify-content: center;
+    .Navigation-item {
+      height: 6rem;
+      width: 100%;
+      background-color: $base;
+
+      .Navigation-composed {
+        width: 100%;
+        text-align: center;
+      }
+
+      .Navigation-link,
+      .Navigation-icon {
+        font-size: 2rem;
+      }
+      .Navigation-link:hover {
+        border-bottom-style: none;
+      }
+    }
+  }
+
+  .NavigationBox {
+    .NavigationBox-item {
+      flex: 1 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: $teeny) {
+  .Navigation-picture {
+    display: none;
+  }
+}

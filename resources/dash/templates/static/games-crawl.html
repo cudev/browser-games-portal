@@ -1,0 +1,52 @@
+<div>
+    <pagination :current="query.page" :total="response.pages"></pagination>
+    <table>
+        <thead>
+        <tr>
+            <th><a v-on:click="checkToggle">All</a></th>
+            <th>#</th>
+            <th>Thumbnail</th>
+            <th>Source</th>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Width</th>
+            <th>Height</th>
+            <th>Type</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="game in response.data" track-by="$index">
+            <td><input type="checkbox" v-bind:value="game.cacheKey" v-model="checked"></td>
+            <td>${game.index}</td>
+            <td>
+                <a v-if="game.thumbnail" rel="noreferrer" title="Open in new tab" target="_blank" v-bind:href="game.thumbnail">image</a>
+            </td>
+            <td><a rel="noreferrer" title="Open in new tab" target="_blank" v-bind:href="game.url">source</a></td>
+            <td>${game.name}</td>
+            <td>${game.slug}</td>
+            <td>${game.width}</td>
+            <td>${game.height}</td>
+            <td>${game.type}</td>
+            <td>${game.crawlStatus}</td>
+        </tr>
+        <tr v-if="!response.data.length">
+            <td colspan="11">No items.</td>
+        </tr>
+        </tbody>
+    </table>
+    <pagination :current="query.page" :total="response.pages"></pagination>
+
+
+    <div v-if="!response.isRunning && !response.data.length">
+        <button v-on:click="crawl">Start</button>
+    </div>
+    <div v-if="response.isRunning">
+        <button v-on:click="refresh" v-bind:disabled="isControlsDisabled">Refresh</button>
+    </div>
+    <div v-if="!response.isRunning && response.data.length">
+        <span>${checked.length} selected</span>
+        <button v-on:click="save" v-bind:disabled="checked.length === 0 || isControlsDisabled">Save</button>
+        <button v-on:click="discard" v-bind:disabled="checked.length === 0 || isControlsDisabled">Discard</button>
+    </div>
+</div>

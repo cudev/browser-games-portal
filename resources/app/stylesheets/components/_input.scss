@@ -1,0 +1,305 @@
+.Input-group {
+  display: flex;
+
+  .Input-field:not(:first-child) > input {
+    border-left: 0;
+  }
+
+  .Input-field:not(:last-child) > input {
+    border-right: 0;
+  }
+}
+
+.Input-field {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  > input {
+    color: $primary;
+    flex: 1;
+    height: inherit;
+    border: 1px solid $primary;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-size: 1.6rem;
+    padding: 0 2.5rem 0 .5rem;
+    box-sizing: border-box;
+    width: 100%;
+    transition: all .3s linear;
+    //&::placeholder {
+    //  font-family: FontAwesome;
+    //  font-size: inherit;
+    //  padding-left: .5rem;
+    //  padding-top: .3rem;
+    //}
+    &:focus {
+      border-color: $active;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+  &.is-invalid {
+    > input {
+      border-color: $attention;
+      &:focus {
+        border-color: $attention;
+      }
+    }
+    .Input-validationError {
+      display: block;
+    }
+  }
+}
+
+.attention {
+  animation: shake 0.82s cubic-bezier(.36, .07, .19, .97) both;
+  transform: translate3d(0, 0, 0);
+}
+
+.Input-field--validableIcon {
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-family: FontAwesome;
+    margin: .5rem;
+    font-size: 2rem;
+  }
+  &.is-invalid {
+    &:after {
+      content: "\f00d";
+    }
+    color: $attention;
+  }
+  &.is-valid, &:valid {
+    &:after {
+      content: "\f00c";
+    }
+    color: $primary;
+  }
+}
+
+.Input-icon {
+
+}
+
+.Input-item {
+
+}
+
+.Input-label {
+  margin: 1.5rem 0 1rem 0;
+  display: inline-block;
+  font-size: 1.5rem;
+}
+
+.Input-item--button {
+  cursor: pointer;
+  height: inherit;
+  border: 2px solid $active;
+  color: $active;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  background-color: transparent;
+  padding: .8rem;
+  box-sizing: border-box;
+  line-height: 1rem;
+  white-space: nowrap;
+  font-weight: $weightBold;
+  &:hover {
+    color: $secondary;
+    background-color: $active;
+    transition: all 200ms linear;
+  }
+}
+
+.Input-item--biggerButton {
+  @extend .Input-item--button;
+  height: 4rem;
+  padding: 1rem;
+  font-size: 1.5rem;
+  border-width: 2px;
+}
+
+.Input-item--resonsive {
+  width: 100%;
+}
+
+.UnauthorizedBox {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin: 5rem 0;
+  .Input-item--biggerButton {
+    margin: 0 1rem;
+  }
+}
+
+.Input-validationError {
+  display: block;
+  font-size: 1rem;
+  margin: .3rem 0;
+  color: $primary;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+
+.Input-select {
+  position: relative;
+  display: inline-block;
+  height: 3rem;
+  select {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px 35px 5px 5px;
+    font-size: 16px;
+    border: 1px solid $primary;
+    height: 100%;
+    appearance: none;
+    color: $primary;
+    position: relative;
+    z-index: 1;
+    option {
+      background-color: #37738A;
+    }
+    &:focus {
+      border: 1px solid $active;
+    }
+  }
+
+  .Input-selectArrow {
+    display: inline-block;
+    position: absolute;
+    border: 2px solid $primary;
+    box-sizing: border-box;
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 3rem;
+    text-align: center;
+    line-height: 2.7rem;
+    font-size: 2rem;
+    &:before {
+      content: "\f107";
+      font-family: FontAwesome;
+    }
+  }
+
+  select:focus + .Input-selectArrow,
+  select:active + .Input-selectArrow {
+    border-color: $active;
+    color: $active;
+  }
+
+  select:active + .Input-selectArrow:before {
+    content: "\f106";
+  }
+}
+
+/*target Internet Explorer 9 and Internet Explorer 10:*/
+@media screen and (min-width: 0 \0
+) {
+  select {
+    background: none;
+    padding: 5px;
+  }
+}
+
+.Input-radioGroup {
+  display: flex;
+  overflow: hidden;
+  border: 2px solid $active;
+  height: 3rem;
+  box-sizing: border-box;
+  font-weight: $weightBold;
+
+  div {
+    position: relative;
+    flex: 1;
+  }
+
+  input {
+    width: 100%;
+    height: 2.6rem;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    text-transform: uppercase;
+    padding: .8rem;
+    font-size: 1.2rem;
+    box-sizing: border-box;
+    color: $active;
+  }
+
+  div:last-child label {
+    border-right: 0;
+  }
+
+  input:checked + label {
+    background: $active;
+    color: $secondary;
+  }
+
+  input:checked {
+    cursor: default;
+  }
+}
+
+.InputFile {
+  border: 2px solid $active;
+  height: 3rem;
+  color: $active;
+  font-size: 1.2rem;
+  font-weight: $weightBold;
+
+  input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+  }
+
+  label {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    text-transform: uppercase;
+  }
+
+  &:hover {
+    background: $active;
+    color: $secondary;
+  }
+}

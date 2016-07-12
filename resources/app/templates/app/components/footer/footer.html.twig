@@ -1,0 +1,53 @@
+<div class="SiteSection-content">
+    <div class="Footer">
+        <section class="Footer-blockHolder">
+            {% embed '@app/components/footer/footer-block.html.twig' %}
+                {% block title %}{{ translator.translate('footer.social.title') }}{% endblock %}
+                {% block description %}{{ translator.translate('footer.social.description') }}{% endblock %}
+                {% block body %}
+                    <div class="SocialConnect">
+                        <div class="Social Social--twitter"></div>
+                        <div class="Social Social--facebook"></div>
+                        <div class="Social Social--googlePlus"></div>
+                    </div>
+                {% endblock %}
+            {% endembed %}
+            {% embed '@app/components/footer/footer-block.html.twig' %}
+                {% block title %}{{ translator.translate('footer.newsletter.title') }}{% endblock %}
+                {% block description %}
+                    <h2 class="Block-title">
+                        {{- translator.translate('footer.newsletter.description') -}}
+                    </h2>
+                {% endblock %}
+                {% block body %}
+                    <footer-subscription :translations="{{ translations|json_encode }}"></footer-subscription>
+                {% endblock %}
+            {% endembed %}
+            {% embed '@app/components/footer/footer-block.html.twig' %}
+                {% block title %}{{ translator.translate('footer.contact.title') }}{% endblock %}
+                {% block description %}{{ translator.translate('footer.contact.description') }}{% endblock %}
+                {% block body %}
+                    <address class="Footer-contact">
+                        <a href="mailto://{{ locale.contactEmail }}"><i
+                                    class="fa fa-envelope"></i>&nbsp;{{ locale.contactEmail|upper }}</a>
+                    </address>
+                {% endblock %}
+            {% endembed %}
+        </section>
+        <section class="Footer-links">
+            <a href="{{ url('info', {'staticPageName': 'terms-of-use'}) }}" class="Footer-link">
+                {{- translator.translate('terms-of-use') -}}
+            </a>
+            <a href="{{ url('info', {'staticPageName': 'privacy-policy'}) }}" class="Footer-link">
+                {{- translator.translate('privacy-policy') -}}
+            </a>
+            <a href="{{ url('info', {'staticPageName': 'about-us'}) }}" class="Footer-link">
+                {{- translator.translate('about-us') -}}
+            </a>
+        </section>
+        <hr class="Footer-horizontalRule">
+        <section class="Footer-copyright">
+            <span>&copy; {{ 'now'|date('Y') }} {{ locale.domain }}</span>
+        </section>
+    </div>
+</div>

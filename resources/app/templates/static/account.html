@@ -1,0 +1,115 @@
+<div id="account" class="Account">
+    <div class="Account-pictureControl">
+        <div class="Account-picture">
+            <img v-if="user.pictureUrl" v-bind:src="user.pictureUrl" alt="Your account picture">
+            <span v-else class="Account-picturePlaceholder">${initials(user.name)}</span>
+        </div>
+        <div v-if="editMode" class="InputFile">
+            <input v-on:change="uploadPicture($event)" id="file" type="file" accept=".png,.jpg,.jpeg">
+            <label for="file">${ translations['account.picture.upload'] } &nbsp;<i class="fa fa-cloud-upload fa-lg"></i>
+            </label>
+        </div>
+        <span v-if="imageIsTooLarge">${ translations['account.picture.upload.large'] }</span>
+        <span v-if="editMode && user.pictureUrl">
+            <a v-on:click="removePicture" class="Navigation-link--dotted">${ translations['account.picture.remove'] }</a>
+        </span>
+    </div>
+    <div v-if="!editMode" class="Account-info">
+        <h1 class="Account-name">${ user.name }</h1>
+        <h2 class="Account-email">${ user.email }</h2>
+        <table>
+            <tbody>
+            <tr v-show="age">
+                <td class="Account-property">${ translations['account.age'] }</td>
+                <td class="Account-value">${ age }</td>
+            </tr>
+            <tr v-show="gender">
+                <td class="Account-property">${ translations['account.gender'] }</td>
+                <td class="Account-value">${ user.gender|capitalize }</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div v-else class="Account-info">
+        <table>
+            <tbody>
+            <tr>
+                <td class="Account-property">${ translations['account.name'] }</td>
+                <td class="Account-value">
+                    <div class="Input-field Input-field--validableIcon"
+                         v-bind:class="{'is-invalid': errors.name.length, 'attention': attention}"
+                    >
+                        <input v-on:input="validate" name="name" type="text" v-model="editedName" spellcheck="false">
+                        <span v-if="errors.name.length" class="Input-validationError">
+                            ${ translations['account.name.error.length'] }
+                        </span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Account-property">${ translations['account.email'] }</td>
+                <td class="Account-value">
+                    <div class="Input-field Input-field--validableIcon">
+                        <input name="email" type="email" v-model="user.email" readonly>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="Account-property">${ translations['account.birthday'] }</td>
+                <td class="Account-value">
+                    <span class="Input-select">
+                        <select v-model="day">
+                            <option class="Input-option" v-for="day in availableDays"
+                                    value="${ day }">
+                                ${ day }
+                            </option>
+                        </select>
+                        <div class="Input-selectArrow"></div>
+                    </span>
+                    <span class="Input-select">
+                        <select class="Input-select" v-model="month">
+                            <option class="Input-option" v-for="(index, month) in availableMonths" value="${ index }">
+                                ${ month }
+                            </option>
+                        </select>
+                        <div class="Input-selectArrow"></div>
+                    </span>
+                    <span class="Input-select">
+                        <select class="Input-select" v-model="year">
+                            <option class="Input-option" v-for="year in availableYears" value="${ year }">
+                                ${ year }
+                            </option>
+                        </select>
+                        <div class="Input-selectArrow"></div>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="Account-property">${ translations['account.gender'] }</td>
+                <td class="Account-value">
+                    <div class="Input-radioGroup">
+                        <div>
+                            <input type="radio" name="gender" value="male" v-model="user.gender">
+                            <label>${ translations['account.gender.male'] }</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="gender" value="female" v-model="user.gender">
+                            <label>${ translations['account.gender.female'] }</label>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="Account-control">
+        <div class="Account-button">
+            <button v-if="editMode" v-on:click="saveProfile" class="Input-item Input-item--button">
+                ${ translations['account.save'] }
+            </button>
+            <button v-else v-on:click="editProfile" class="Input-item Input-item--button">
+                ${ translations['account.edit'] }
+            </button>
+        </div>
+    </div>
+</div>

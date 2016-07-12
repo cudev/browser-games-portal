@@ -1,0 +1,17 @@
+.MessageBox {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 2rem;
+  max-width: 30%;
+  font-size: 1.4rem;
+  border: 1px dotted indianred;
+  &.is-success {
+    border-color: seagreen;
+    color: seagreen;
+  }
+  &.is-error {
+    border-color: darkred;
+    color: darkred;
+  }
+}

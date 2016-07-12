@@ -1,0 +1,24 @@
+<div>
+    <a href="/admin/locales/new">New</a>
+    <hr>
+    <table>
+        <thead>
+        <tr>
+            <th>Host</th>
+            <th>Language</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Contact Email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="locale in response.data" track-by="$index">
+            <td><a href="/admin/locales/${locale.id}">${locale.domain}</a></td>
+            <td>${locale.language}</td>
+            <td>${locale.title}</td>
+            <td>${locale.description}</td>
+            <td>${locale.contactEmail}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

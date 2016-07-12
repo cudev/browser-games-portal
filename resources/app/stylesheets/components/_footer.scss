@@ -1,0 +1,116 @@
+$footerFontColor: #616161;
+$footerFontSizeHuge: 2.5rem;
+$footerFontSizeBig: 2.2rem;
+$footerFontSizeNormal: 1.7rem;
+
+.Footer {
+  padding: .5rem 1.5rem;
+  display: flex;
+  flex-flow: column;
+}
+
+.Footer-blockHolder {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.Footer-block {
+  height: 33rem;
+}
+
+.Footer-blockTitle {
+  color: $primary;
+  font-size: $footerFontSizeHuge;
+  font-weight: 700;
+  padding: 5rem 0 5.5rem;
+  display: block;
+  text-transform: uppercase;
+}
+
+.Footer-blockDescription {
+  box-sizing: border-box;
+  display: inline-block;
+  border-top: 1px solid $footerFontColor;
+  color: $footerFontColor;
+  font-size: $footerFontSizeNormal;
+  padding: 1rem 0;
+}
+
+.Footer-blockBody {
+  padding: 1.5rem 0;
+}
+
+.Footer-body {
+  margin-bottom: 10rem;
+}
+
+.Footer-subscribe {
+  max-width: 30rem;
+  height: 3rem;
+}
+
+.Footer-horizontalRule {
+  border: none;
+  height: 1px;
+
+  /* Set the hr color */
+  color: $footerFontColor; /* old IE */
+  background-color: $footerFontColor; /* Modern Browsers */
+
+  margin: 1rem 0;
+}
+
+.Footer-link {
+  font-size: $footerFontSizeNormal;
+  text-transform: capitalize;
+  color: $footerFontColor;
+  margin-right: 2em;
+  transition: all .5s linear;
+  &:hover {
+    color: $active;
+  }
+}
+
+.Footer-contact {
+  color: $footerFontColor;
+  font-size: $footerFontSizeBig;
+  a {
+    color: inherit;
+  }
+}
+
+.Footer-copyright {
+  color: $footerFontColor;
+  font-size: $footerFontSizeBig;
+  text-align: center;
+  margin: 4rem 0;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: $small) and (min-width: $tiny){
+  .Footer-block {
+    width: 23rem;
+  }
+  .Footer-contact {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (max-width: $tiny) {
+  .Footer-blockHolder {
+    flex-wrap: wrap;
+  }
+  .Footer-block {
+    height: auto;
+    padding-bottom: 4rem;
+  }
+  .Footer-blockTitle {
+    padding: 1rem 0 1.5rem;
+  }
+
+  .Footer-link {
+    display: block;
+    margin-top: 1em;
+  }
+}

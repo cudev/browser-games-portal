@@ -1,0 +1,33 @@
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th>Joined</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Connections</th>
+            <th>Subscribed</th>
+            <th>Confirmed</th>
+            <th>Played</th>
+            <th>Rated</th>
+            <th>Comments</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-if="response.data.length" v-for="user in response.data" track-by="$index">
+            <td>${user.joined}</td>
+            <td>${user.email}</td>
+            <td>${user.name}</td>
+            <td>${user.connections.join(', ')}</td>
+            <td><input type="checkbox" v-model="user.isSubscribed" disabled></td>
+            <td><input type="checkbox" v-model="user.isEmailConfirmed" disabled></td>
+            <td>${user.totalGamesPlayed}</td>
+            <td>${user.totalGamesRated}</td>
+            <td>${user.totalComments}</td>
+        </tr>
+        <tr v-if="!response.data.length">
+            <td>No items.</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

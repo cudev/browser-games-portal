@@ -1,0 +1,19 @@
+<div class="Card Card--game Card--cornerButton">
+    {% block bookmark %}{% endblock %}
+    {% block cover %}{% endblock %}
+    <div class="Card-extra">
+        <div class="Card-title u-ellipsis">{% block title %}{% endblock %}</div>
+        <a href="{{ url('game.play', {'gameSlug': game.slug }) }}" class="Card-expansion">
+            <div class="Card-rating">
+                <rating :rating="{{ game.averageRating }}" :readonly="true"></rating>
+            </div>
+            <span class="Card-secondary Card-secondary--clock">
+                {% block created %}{% endblock %}
+            </span>
+            <span class="Card-secondary Card-secondary--check">
+                {% block played %}{% endblock %}
+            </span>
+            <p class="Card-primary">{% block description %}{% endblock %}</p>
+        </a>
+    </div>
+</div>

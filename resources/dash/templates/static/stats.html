@@ -1,0 +1,19 @@
+<section>
+    <div>Average response time: ${statistics.averageResponseTime}ms</div>
+    <hr>
+    <div>Total Games: ${statistics.allGames}</div>
+    <div>Enabled Games: ${statistics.enabledGames}</div>
+    <hr>
+
+    <br>
+    <table>
+        <tr>
+            <th colspan="3">Missing descriptions of enabled games</th>
+        </tr>
+        <tr v-for="games in statistics.withoutDescription">
+            <td>${games.language|uppercase}</td>
+            <td>${games.descriptionless}</td>
+            <td>${Math.floor(games.descriptionless / statistics.allGames * 100)}%</td>
+        </tr>
+    </table>
+</section>

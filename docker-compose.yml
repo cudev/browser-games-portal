@@ -1,0 +1,25 @@
+web:
+  build: .
+  volumes:
+   - /home/andy/Development/projects/games:/srv/games
+
+   - /home/andy/Development/projects/games/php.ini:/etc/php/7.0/fpm/php.ini
+   - /home/andy/Development/projects/games/php.ini:/etc/php/7.0/cli/php.ini
+
+   - ./games.conf:/etc/nginx/sites-enabled/games.conf
+  links:
+   - redis
+   - mysql
+  environment:
+    DB_NAME: games
+    DB_USER: root
+    DB_PASSWORD: root
+  ports:
+   - "8080:80"
+redis:
+  image: redis
+mysql:
+  image: mysql:5.6
+  environment:
+    MYSQL_DATABASE: games
+    MYSQL_ROOT_PASSWORD: root

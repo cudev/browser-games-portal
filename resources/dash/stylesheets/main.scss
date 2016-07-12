@@ -1,0 +1,71 @@
+@import "components/reset";
+@import "components/navigation";
+@import "components/table";
+@import "components/message-box";
+@import "components/input";
+
+$fa-font-path: '../../../node_modules/font-awesome/fonts';
+@import "../../../node_modules/font-awesome/scss/font-awesome";
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.5rem;
+}
+
+html, body {
+  font-family: "Roboto";
+  font-weight: 300;
+}
+
+fieldset {
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 1px solid #dedede;
+}
+
+hr {
+  height: 1px;
+  border-width: 0;
+  color: #dedede;
+  background-color: #dedede;
+}
+
+textarea {
+  height: 6rem;
+}
+
+.content {
+  padding: 10px;
+  margin-left: 200px;
+  width: auto;
+  position: relative;
+  overflow: auto;
+  z-index: 1;
+}
+
+.fade-transition {
+  transition: opacity .3s ease;
+}
+
+.fade-enter, .fade-leave {
+  opacity: 0;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: indianred;
+}
+
+a:hover {
+  color: darkred;
+  cursor: pointer;
+}

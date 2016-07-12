@@ -1,0 +1,38 @@
+<div>
+    <pagination :current="query.page" :total="response.pages"></pagination>
+    <table>
+        <thead>
+        <tr>
+            <th><a v-on:click="checkToggle">All</a></th>
+            <th>#</th>
+            <th>Name</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="category in response.data" track-by="$index">
+            <td><input type="checkbox" v-bind:value="category.cacheKey" v-model="checked"></td>
+            <td>${category.index}</td>
+            <td>${category.name}</td>
+            <td>${category.crawlStatus}</td>
+        </tr>
+        <tr v-if="!response.data.length">
+            <td colspan="4">No items.</td>
+        </tr>
+        </tbody>
+    </table>
+    <pagination :current="query.page" :total="response.pages"></pagination>
+
+
+    <div v-if="!response.isRunning && !response.data.length">
+        <button v-on:click="crawl">Start</button>
+    </div>
+    <div v-if="response.isRunning">
+        <button v-on:click="refresh">Refresh</button>
+    </div>
+    <div v-if="!response.isRunning && response.data.length">
+        <span>${checked.length} selected</span>
+        <button v-on:click="save" v-bind:disabled="checked.length === 0">Save</button>
+        <button v-on:click="discard" v-bind:disabled="checked.length === 0">Discard</button>
+    </div>
+</div>

@@ -1,0 +1,309 @@
+.GameTitle {
+  color: $primary;
+  font-size: 4rem;
+  margin: 2rem 0;
+}
+
+.GameTitle:before {
+  content: "\f04b";
+  margin-right: 1rem;
+  font-family: FontAwesome;
+}
+
+.Player {
+  border: 1px solid $active;
+  background-color: $secondary;
+  height: 100%;
+  width: 100%;
+}
+
+.Player-header {
+  height: 7.5rem;
+  background-color: $base;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  font-size: 3.5rem;
+}
+
+.Player-buttonGroup {
+  display: flex;
+  flex: 1;
+
+  .Rating-star {
+    @extend .Player-button;
+  }
+
+  > :not(:first-child), > :not(:last-child) {
+    margin: 0 1rem;
+  }
+  > :first-child {
+    margin-right: 1rem;
+  }
+  > :last-child {
+    margin-right: 1rem;
+  }
+}
+
+.Player-buttonGroup--pullLeft {
+  justify-content: flex-start;
+}
+
+.Player-buttonGroup--pullRight {
+  justify-content: flex-end;
+}
+
+.Player-button {
+  cursor: pointer;
+  font-family: FontAwesome;
+  color: $secondary;
+  transition: all .3s linear;
+  &:hover {
+    color: $active;
+  }
+}
+
+.Player-infoButton:before {
+  @extend .Player-button;
+  content: "\f05a";
+}
+
+.Player-ratingButton {
+  @extend .Player-button;
+}
+
+.Player-commentButton {
+  text-decoration: none;
+}
+
+.Player-commentButton:before {
+  @extend .Player-button;
+  content: "\f0e6";
+}
+
+.Player-shareButton:before {
+  @extend .Player-button;
+  content: "\f1e0";
+}
+
+.Player-soundButton:before {
+  @extend .Player-button;
+  content: "\f026";
+}
+
+.Player-soundButton.is-on:before {
+  content: "\f028";
+}
+
+.Player-zoomMoreButton:before {
+  @extend .Player-button;
+  content: "\f00e";
+}
+
+.Player-zoomLessButton:before {
+  @extend .Player-button;
+  content: "\f010";
+}
+
+.Player-expandButton:before {
+  @extend .Player-button;
+  content: "\f065";
+}
+
+.Player-button--alignLeft {
+  align-self: flex-start;
+}
+
+.Player-gameInfo {
+  background-color: $primary;
+  max-width: 49rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0.8;
+  padding: 3rem;
+  box-sizing: border-box;
+  color: #00234c;
+  font-size: 2.5rem;
+  text-align: center;
+  header {
+    text-align: center;
+    font-size: 5rem;
+    margin: 3rem 0;
+    display: inline-block; // to prevent margin collapse
+  }
+  .Rating {
+    font-size: 4rem;
+    margin: 3rem 25% 1rem 25%;
+    justify-content: center;
+  }
+  p {
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin: 2rem 0;
+  }
+}
+
+.Player-gameInfoPlayed {
+  text-align: center;
+  display: block;
+  font-size: 3rem;
+  margin: 1rem 0;
+  strong {
+    font-weight: 600;
+  }
+}
+
+.Player-game {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  iframe {
+    border: none;
+  }
+}
+
+@media screen and (max-width: $small) {
+  .GameTitle {
+    margin: 1.5rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .Player-header {
+    height: 4rem;
+    padding: 1rem;
+    font-size: 2rem;
+  }
+
+  .Player-buttonGroup {
+    display: flex;
+    flex: 1;
+    > :not(:first-child), > :not(:last-child) {
+      margin: 0 .5rem;
+    }
+    > :first-child {
+      margin-right: .5rem;
+    }
+    > :last-child {
+      margin-right: .5rem;
+    }
+  }
+
+  .Player-gameInfo {
+    header {
+      font-size: 3rem;
+      margin: 1rem;
+    }
+    .Rating {
+      font-size: 3rem;
+      margin: 0;
+    }
+    .Player-gameInfoPlayed {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.PlayerCover {
+  background-color: rgba(19, 37, 75, .9);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: absolute;
+  padding: 3.5rem;
+  box-sizing: border-box;
+  flex-flow: column;
+}
+
+.PlayerCover-line {
+  flex: 0;
+  padding: 2.5rem 0;
+  text-align: center;
+}
+
+.PlayerCover-headline {
+  @extend .PlayerCover-line;
+  font-size: 7rem;
+}
+
+.PlayerCover-underline {
+  @extend .PlayerCover-line;
+  font-size: 2.5rem;
+}
+
+.PlayerCover-subscribe {
+  display: flex;
+  justify-content: center;
+  padding: 6rem 0;
+
+  .Input-group {
+    max-width: 62rem;
+    height: 4rem;
+    flex: 1;
+  }
+
+  .Input-field {
+    .Input-validationError {
+      margin: 1rem 0;
+    }
+    input {
+      padding: 0 1rem;
+    }
+  }
+
+  .Input-item--button {
+    width: 19rem;
+    font-size: 1.4rem;
+    color: $primary;
+    border-color: $primary;
+    background-color: $attention;
+    &:hover {
+      color: #13254b;
+      border-color: $active;
+      background-color: #06effe;
+    }
+  }
+}
+
+.PlayerCover-corner {
+  text-align: right;
+  margin-top: auto;
+}
+
+.PlayerCover-skip {
+  font-size: 1rem;
+  color: $primary;
+  transition: all .3s linear;
+  &:hover {
+    color: $active;
+  }
+}
+
+@media screen and (max-width: $tiny) {
+  .PlayerCover-headline {
+    font-size: 5rem;
+  }
+
+  .PlayerCover-subscribe {
+
+    .Input-group {
+      height: 3rem;
+      flex: 1;
+    }
+
+    .Input-field > input {
+      padding: 0 .5rem;
+      font-size: 1.5rem;
+    }
+
+    .Input-item--button {
+      width: 10rem;
+      font-size: 1rem;
+    }
+  }
+}

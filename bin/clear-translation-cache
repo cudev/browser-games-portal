@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+use Interop\Container\ContainerInterface;
+use Psr\Cache\CacheItemPoolInterface;
+use Ludos\Entity\StaticContent;
+
+require __DIR__ . '/../vendor/autoload.php';
+
+/** @var ContainerInterface $container */
+$container = require __DIR__ . '/../config/container.php';
+
+/** @var CacheItemPoolInterface $cachePool */
+$cachePool = $container->get(CacheItemPoolInterface::class);
+if ($cachePool->deleteItem(StaticContent::class)) {
+    fwrite(STDOUT, 'Translation cache cleared successfully' . PHP_EOL);
+} else {
+    fwrite(STDOUT, 'Unable to clear translation cache' . PHP_EOL);
+}

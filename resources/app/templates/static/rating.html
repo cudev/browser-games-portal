@@ -1,0 +1,9 @@
+<ul class="Rating">
+    <li v-for="n in total"
+        v-on:click="setRating(n + 1)"
+        v-on:mouseover="setHover(n + 1)"
+        v-on:mouseout="setHover(0)"
+        v-bind:class="{'is-active': n < hover || n < rating}"
+        class="Rating-star">
+    </li>
+</ul>

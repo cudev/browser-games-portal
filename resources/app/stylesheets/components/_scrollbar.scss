@@ -1,0 +1,45 @@
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: $scrollbarWidth;
+  * {
+    background: transparent;
+  }
+}
+
+::-webkit-scrollbar * {
+  background: transparent;
+}
+
+//::-webkit-scrollbar-button { /* 2 */
+//}
+//
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: .4rem;
+  width: .8px !important;
+  border: 6px solid rgba(0, 0, 0, 0) !important;
+  background-clip: padding-box;
+  background-color: $base !important;
+  &:hover {
+    border: 6px solid rgba(0, 0, 0, 0) !important;
+    background-clip: padding-box;
+    background-color: $active !important;
+  }
+}
+
+//::-webkit-scrollbar-corner { /* 6 */
+//}
+//
+//::-webkit-resizer {
+//}

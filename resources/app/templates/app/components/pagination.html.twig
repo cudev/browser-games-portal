@@ -1,0 +1,25 @@
+<div class="Pagination Pagination--standalone">
+    {% if paginator.currentPage > 1 %}
+        <a href="{{ url('tag', {'page': paginator.currentPage - 1, 'tagSlug': slug, 'order': order}) }}#filter"
+           class="Pagination-item Pagination-item--arrow">
+            <i class="fa fa-angle-left"></i>
+        </a>
+    {% endif %}
+    {% for page in paginator.paginationArray %}
+        {% if page %}
+            <a href="{{ url('tag', {'page': page, 'tagSlug': slug, 'order': order}) }}#filter"
+               class="Pagination-item {% if page == paginator.currentPage %} is-active{% endif %}">
+                {{- page -}}
+            </a>
+        {% else %}
+            <div class="Pagination-item is-disabled">...</div>
+        {% endif %}
+    {% endfor %}
+    {% if paginator.currentPage != paginator.paginationArray|last %}
+        <a href="{{ url('tag', {'page': paginator.currentPage + 1, 'tagSlug': slug, 'order': order}) }}#filter"
+           class="Pagination-item Pagination-item--arrow">
+            <i class="fa fa-angle-right"></i>
+        </a>
+    {% endif %}
+    <div class="Pagination-info">{{ paginator.currentPage }} / {{ paginator.paginationArray|last }}</div>
+</div>

@@ -1,0 +1,152 @@
+{% extends '@app/default.html.twig' %}
+
+{% block main %}
+    <div class="Grid small-Grid--full">
+        {% if banner %}
+            <div class="Grid-cell">
+                <div class="Block">
+                    <div class="Block-header">
+                        <div class="Block-title">
+                            {{ translator.translate('game.featured') }}
+                        </div>
+                    </div>
+                    <div class="Block-content">
+                        {% include "@app/components/banner.html.twig" %}
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="Grid-cell">
+            <div class="Block">
+                <div class="Block-header">
+                    <h2 class="Block-title">{{ translator.translate('games.most.rated') }}</h2>
+                    <a class="Block-link" href="{{ url('tag', {'tagSlug': 'all', 'order': 'top'}) }}">
+                        {{- translator.translate('view.more') -}}
+                        &nbsp;<i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+                <div class="Block-content">
+                    <div class="Cardholder tiny-Cardholder--responsive">
+                        {% for game in topGames %}
+                            {% include "@app/components/card-game.html.twig" with {'game': game} %}
+                            {% include "@app/components/game-meta.html.twig" with {'game': game} %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="Grid small-Grid--full">
+        <div class="Grid-cell ">
+            <div class="Block">
+                <div class="Block-header">
+                    <h2 class="Block-title">{{ translator.translate('games.last.played') }}</h2>
+                    {#<a class="Block-link" href="#">{{ translator.translate('view.more') }}</a>&nbsp;<i class="fa fa-angle-right"></i>#}
+                </div>
+                <div class="Block-content">
+                    <div class="Cardholder tiny-Cardholder--responsive">
+                        {% for game in playedGames %}
+                            {% if game %}
+                                {% include "@app/components/card-game.html.twig" with {'game': game} %}
+                            {% else %}
+                                {% include "@app/components/card-game-empty.html.twig" %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="Grid-cell">
+            <div class="Block">
+                <div class="Block-header">
+                    <h2 class="Block-title">{{ translator.translate('games.most.recent') }}</h2>
+                    <a class="Block-link" href="{{ url('tag', {'tagSlug': 'all', 'order': 'new'}) }}">
+                        {{- translator.translate('view.more') -}}&nbsp;
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                </div>
+                <div class="Block-content">
+                    <div class="Cardholder tiny-Cardholder--responsive">
+                        {% for game in newGames %}
+                            {% include "@app/components/card-game.html.twig" with {'game': game} %}
+                            {% include "@app/components/game-meta.html.twig" with {'game': game} %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="Site-content SiteSection">
+        <div class="SiteSection-content">
+            <div class="Grid small-Grid--full">
+                <div class="Grid-cell  ">
+                    <div class="Block Block--dark">
+                        <div class="Block-header">
+                            <h2 class="Block-title">{{ translator.translate('games.most.played') }}</h2>
+                            <a class="Block-link" href="{{ url('tag', {'tagSlug': 'all', 'order': 'popular'}) }}">
+                                {{- translator.translate('view.more') -}}&nbsp;
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                        <div class="Block-content">
+                            <div class="Cardholder tiny-Cardholder--responsive">
+                                {% for game in popularGames %}
+                                    {% include "@app/components/card-game.html.twig" with {'game': game} %}
+                                    {% include "@app/components/game-meta.html.twig" with {'game': game} %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Grid-cell ">
+                    <div class="Block Block--dark">
+                        <div class="Block-header">
+                            <h2 class="Block-title">{{ translator.translate('games.most.discussed') }}</h2>
+                            <a class="Block-link" href="{{ url('tag', {'tagSlug': 'all', 'order': 'discussed'}) }}">
+                                {{- translator.translate('view.more') -}}&nbsp;
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        </div>
+                        <div class="Block-content">
+                            <div class="Cardholder tiny-Cardholder--responsive">
+                                {% for game in discussedGames %}
+                                    {% include "@app/components/card-game.html.twig" with {'game': game} %}
+                                    {% include "@app/components/game-meta.html.twig" with {'game': game} %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="SiteSection">
+        <div class="SiteSection-content">
+            <div class="Grid small-Grid--full medium-Grid--1of2 large-Grid--full">
+                {% for tag in tags if tag.featured and tag.enabled and tag.findGamesByTypes(supportedGameTypes)|length > 0 %}
+                    <div class="Grid-cell">
+                        <div class="Block">
+                            <div class="Block-header">
+                                <h2 class="Block-title">{{ tag.name(locale.language) }}</h2>
+                                <a class="Block-link" href="{{ url('tag', {'tagSlug': tag.slug(locale.language)}) }}">
+                                    {{- translator.translate('view.more') -}}&nbsp;
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </div>
+                            <div class="Block-content">
+                                <div class="Cardholder tiny-Cardholder--responsive">
+                                    {% for game in tag.findGamesByTypes(supportedGameTypes).slice(0, 6) %}
+                                        {% include "@app/components/card-game.html.twig" with {'game': game} %}
+                                        {% include "@app/components/game-meta.html.twig" with {'game': game} %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

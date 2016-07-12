@@ -1,0 +1,111 @@
+@import "reset";
+@import "lazy-images";
+@import "components/settings";
+@import "components/utils";
+@import "components/block";
+@import "components/grid";
+@import "components/site-section";
+@import "components/card";
+@import "components/banner";
+@import "components/navigation";
+@import "components/rating";
+@import "components/input";
+@import "components/site";
+@import "components/player";
+@import "components/commentaries";
+@import "components/pagination";
+@import "components/modal";
+@import "components/form";
+@import "components/account";
+@import "components/error-message";
+@import "components/social";
+@import "components/logo";
+@import "components/title";
+@import "components/share-box";
+@import "components/footer";
+@import "components/paper";
+@import "../../../node_modules/font-awesome/scss/font-awesome";
+//@import "components/scrollbar";
+
+html {
+  font-size: 62.5%; /* font-size 1em = 10px on default browser settings */
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+body, input {
+  font-weight: $weightNormal;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: #babdc4; /* old IE */
+  background-color: #babdc4; /* Modern Browsers */
+}
+
+body {
+  //min-width: 750px;
+
+}
+
+iframe, object, embed {
+  max-width: 100%;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+*:focus {
+  outline: none;
+}
+
+.FooterHeader {
+  color: $primary;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 5rem 0 5.5rem;
+  display: block;
+}
+
+.FooterHeader--uppercase {
+  text-transform: uppercase;
+}
+
+// hide vue.js while compiling
+[v-cloak] {
+  display: none;
+}
+
+[v-cloak].fading {
+  opacity: 0;
+  display: flex;
+}
+
+.FooterBox {
+  margin: 0 1.5rem;
+}
+
+@media screen and (max-width: $small) {
+  .FooterBox {
+    max-width: 23rem;
+  }
+}
+
+@media screen and (max-width: $tiny) {
+  .FooterBox {
+    max-width: 90%;
+  }
+}

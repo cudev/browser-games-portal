@@ -1,0 +1,52 @@
+<div>
+    <a v-on:click="toggleSearch">search</a>
+    <div v-show="isSearchExpanded">
+        <label class="Label">
+            <input class="Input" type="search" v-model="query.query" v-on:keyUp="search | debounce 500" placeholder="Find games">
+        </label>
+        <fieldset>
+            <legend>Without descriptions</legend>
+            <label class="Label" v-for="locale in settings.locales">
+                <input v-on:change="filter | debounce 500" v-model="withoutDescriptions" type="checkbox" v-bind:value="locale.id">
+                ${locale.language}
+            </label>
+        </fieldset>
+    </div>
+    <hr>
+    <pagination :current="query.page" :total="response.pages"></pagination>
+    <hr>
+    <table>
+        <thead>
+        <tr>
+            <!--<th><a v-on:click="checkToggle">All</a></th>-->
+            <th>Image</th>
+            <th>Enabled</th>
+            <th>Name</th>
+            <th>Slug</th>
+            <th>Type</th>
+            <th>Width</th>
+            <th>Height</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="game in response.data" track-by="$index">
+            <!--<td><input type="checkbox" v-bind:value="game.cacheKey" v-model="checked"></td>-->
+            <td><img v-bind:src="game.thumbnail"></td>
+            <td><input v-model="game.enabled" type="checkbox" disabled></td>
+            <td><a href="/admin/games/${game.id}">${game.name}</a></td>
+            <td>${game.slug}</td>
+            <td>${game.type}</td>
+            <td>${game.width}</td>
+            <td>${game.height}</td>
+        </tr>
+        <tr v-if="!response.data.length">
+            <td colspan="7">No items.</td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+    <pagination :current="query.page" :total="response.pages"></pagination>
+    <!--<button>Activate</button>-->
+    <!--<button>Deactivate</button>-->
+    <!--<button>Delete</button>-->
+</div>

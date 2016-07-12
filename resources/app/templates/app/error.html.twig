@@ -1,0 +1,17 @@
+{% extends '@app/default.html.twig' %}
+
+{% block title %}{{ status }} {{ reason }}{% endblock %}
+
+{% block main %}
+    <div class="InfoMessage">
+        <h1>{{ translator.translate('error.header1') }}</h1>
+        <h2>{{ translator.translate('error.header2') }}</h2>
+        <p>{{ translator.translate('error.description', {'code': status, 'reason': reason}) }}</p>
+        {% if status == 404 %}
+            {% set link = '<a href="' ~ path('home') ~ '">home</a>' %}
+            <p>
+                {{ translator.translate('error.explanation', {'url': link})|raw }}
+            </p>
+        {% endif %}
+    </div>
+{% endblock %}

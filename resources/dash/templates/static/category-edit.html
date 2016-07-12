@@ -1,0 +1,21 @@
+<div>
+    <form v-on:submit.prevent="submit">
+        <h1>${resource[0].name}</h1>
+
+        <fieldset>
+            <legend>Tags mapped to this category</legend>
+            Current tags: <span v-for="tag in resource[0].tags" track-by="$index">${tag.tagNames['en'].translation}<a v-on:click="removeTag(tag)">-</a><br></span>
+            <br>
+            <hr>
+            <select v-model="selectedTag">
+                <option v-for="tag in included.tags" v-bind:value="tag">
+                    ${tag.tagNames['en'].translation}
+                </option>
+            </select>
+            <a v-if="selectedTag" v-on:click="addTag">+</a>
+        </fieldset>
+
+        <button>Save</button>
+        <button v-on:click="remove" type="button">Delete</button>
+    </form>
+</div>

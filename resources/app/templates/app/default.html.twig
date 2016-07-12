@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head itemscope itemtype="http://schema.org/WebSite">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta itemprop="thumbnailUrl" content="{{ urlPackage.getUrl('/favicon-96x96.png') }}">
+    <title itemprop="name">
+        {% block title %}
+            {{- translator.translate('site.title.default', {'domain': locale.domain|capitalize}) -}}
+        {% endblock %}
+    </title>
+
+    <link itemprop="url" rel="canonical" href="{{ canonical }}">
+
+    {% block meta %}
+        <meta name="description" content="{{ locale.description }}">
+    {% endblock %}
+
+    <link href="{{ urlPackage.getUrl('/stylesheets/app.css') }}" rel="stylesheet">
+
+    {% include "@app/components/customization.html.twig" with {'packageUrl': urlPackage} %}
+    {% include "@initializers/google-analytics.html.twig" %}
+</head>
+<body user="{{ serializedUser is defined ? serializedUser : 'null' }}">
+
+{# Main content #}
+<div class="Site SiteSection">
+    <header class="Site-header SiteSection-content">
+        {% include "@app/components/navigation.html.twig" %}
+    </header>
+    <main class="Site-content SiteSection-content">
+        {% block main %}{% endblock %}
+    </main>
+    {% block content %}{% endblock %}
+    <footer class="Site-footer SiteSection SiteSection--blue">
+        {% include "@app/components/footer/footer.html.twig" %}
+    </footer>
+</div>
+
+{% include "@app/components/auth-modal.html.twig" %}
+
+<script src="{{ urlPackage.getUrl('/scripts/app.js') }}" async defer></script>
+
+</body>
+</html>

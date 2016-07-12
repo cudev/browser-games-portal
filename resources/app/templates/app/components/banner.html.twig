@@ -1,0 +1,9 @@
+<a v-on:click="bannerClicked('{{ banner.game.slug(locale.language) }}')"
+   class="Banner"
+   href="{{ url('game.play', {'gameSlug': banner.game.slug(locale.language) }) }}"
+   style="background-image: url('{{ urlPackage.getUrl(banner.pictureUrl) }}')"
+>
+    <div class="Banner-info">
+        <h3 class="Banner-text">{{ banner.title(locale.language) }}</h3>
+    </div>
+</a>

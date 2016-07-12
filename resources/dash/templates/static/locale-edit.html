@@ -1,0 +1,12 @@
+<div>
+<form v-on:submit.prevent="postData(false)">
+    <label class="Label">Domain: <input class="Input" type="text" v-model="response.data.domain"></label>
+    <label class="Label">Language: <input class="Input" type="text" v-model="response.data.language"></label>
+    <label class="Label">Title: <input class="Input" type="text" v-model="response.data.title"></label>
+    <label class="Label">Description: <input class="Input" type="text" v-model="response.data.description"></label>
+    <label class="Label">Contact email: <input class="Input" type="text" v-model="response.data.contactEmail"></label>
+
+        <button>Save</button>
+        <button v-show="!isNew" v-on:click="deleteData(false)" type="button">Delete</button>
+    </form>
+</div>

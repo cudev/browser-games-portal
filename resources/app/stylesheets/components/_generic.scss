@@ -1,0 +1,59 @@
+.Unselectable {
+  user-select: none;
+  cursor: default;
+}
+
+// fading for vue.js
+.fading {
+  opacity: 1;
+  transition: opacity .3s ease-in;
+}
+
+
+// underline on hover
+.SlidingUnderline {
+  display: inline-block;
+  &:after {
+    content: "";
+    height: 1px;
+    width: 0;
+    display: block;
+    box-sizing: border-box;
+    border-bottom-width: 1px;
+    border-bottom-style: inherit;
+    border-bottom-color: inherit;
+    transition: width .3s cubic-bezier(0.4, 0, 0, 1.5);
+  }
+
+  &:hover:after {
+    width: 100%;
+  }
+}
+
+.SlidingUnderline--dashed {
+  border-bottom-style: dashed;
+  @extend .SlidingUnderline;
+}
+
+.SlidingUnderline--solid {
+  border-bottom-style: solid;
+  @extend .SlidingUnderline;
+}
+
+
+// animated angle
+.SlideSide {
+  animation-duration: .5s;
+  animation-name: sideslide;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes sideslide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-.5rem);
+  }
+}

@@ -1,0 +1,19 @@
+<form v-on:submit.prevent="subscribe" class="Input-group Footer-subscribe" novalidate>
+    <div class="Input-field">
+        <input v-model="emailAddress"
+               type="email"
+               v-bind:placeholder="translations['footer.newsletter.subscribe.placeholder']"
+               spellcheck="false"
+               v-on:input="validate"
+        >
+        <span v-cloak v-show="isSubscribed" class="Input-validationError">
+            ${ translations['footer.newsletter.subscribed'] }
+        </span>
+        <span v-cloak v-show="showError" class="Input-validationError">
+            ${ translations['footer.newsletter.error'] }
+        </span>
+    </div>
+    <button class="Input-item Input-item--button">
+        ${ translations['footer.newsletter.subscribe'] }
+    </button>
+</form>

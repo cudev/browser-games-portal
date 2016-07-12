@@ -1,0 +1,26 @@
+.Rating {
+  font-size: inherit;
+  flex: 0 1 auto;
+  display: flex;
+}
+
+.Rating-star {
+  font-family: FontAwesome;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.Rating--interactive .Rating-star:hover {
+  cursor: pointer;
+}
+
+.Rating .Rating-star:before {
+  content: "\f006";
+  padding-right: 5px;
+  color: inherit;
+}
+
+.Rating .Rating-star.is-active:before {
+  content: "\f005";
+  color: inherit;
+}

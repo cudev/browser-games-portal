@@ -1,0 +1,26 @@
+.SiteSection {
+  background-color: #b7b7b7;
+}
+
+.SiteSection--blue {
+  background-color: $secondary;
+}
+
+.SiteSection-content {
+  max-width: 156rem;
+  padding: 1rem 0 0;
+  margin: 0 auto;
+
+  @media screen and (max-width: $large) {
+    max-width: $fourCards;
+  }
+  @media screen and (max-width: $medium) {
+    max-width: $fourCards;
+  }
+  @media screen and (max-width: $small) {
+    max-width: $threeCards;
+  }
+  @media screen and (max-width: $tiny) {
+    max-width: $twoCards;
+  }
+}

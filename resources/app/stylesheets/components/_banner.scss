@@ -1,0 +1,49 @@
+@import "generic";
+
+.Banner {
+  cursor: pointer;
+  height: 35rem;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+
+  background-size: cover;
+  background-position-x: 50%;
+
+  .Banner-info {
+    background: rgba(0, 0, 0, 0.5);
+    color: $primary;
+    font-size: 2.8rem;
+    font-weight: 400;
+    padding: 1rem 2rem;
+    position: relative;
+    align-self: flex-end;
+    flex: 1;
+    display: flex;
+    transition: all 150ms linear;
+
+    &::after {
+      transition: inherit;
+      font-family: FontAwesome;
+      font-weight: normal;
+      font-style: normal;
+      content: "\f105";
+      align-self: center;
+    }
+  }
+  &:hover {
+    .Banner-info {
+      background: rgba(0, 0, 0, 0.8);
+      &::after {
+        @extend .SlideSide;
+      }
+    }
+  }
+  .Banner-text {
+    width: 100%;
+  }
+  @media screen and (min-width: $small) and (max-width: $large) {
+    height: 54rem;
+  }
+}
+

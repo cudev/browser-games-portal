@@ -1,0 +1,12 @@
+{% extends '@app/default.html.twig' %}
+
+{% block title %}
+    {{- locale.domain|upper }} &dash; {{ translator.translate('email.confirmation.message.confirmed') -}}
+{% endblock %}
+
+{% block main %}
+    <div class="InfoMessage">
+        <h1>{{ translator.translate('email.confirmation.message.confirmed') }}</h1>
+        <h2>{{ translator.translate('email.confirmation.message.cheer') }}</h2>
+    </div>
+{% endblock %}

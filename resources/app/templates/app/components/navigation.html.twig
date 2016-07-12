@@ -1,0 +1,51 @@
+<nav class="Navigation">
+    <div class="Navigation-social">
+        {% if user|default(false) %}
+            <div v-cloak class="Navigation-picture Navigation-picture--rounded fading">
+                <img v-if="user.pictureUrl" v-bind:src="user.pictureUrl">
+                <span v-else class="Navigation-picturePlaceholder">${initials(user.name)}</span>
+            </div>
+            <a v-cloak class="fading" href="{{ url('user') }}">${ user.name }</a>
+            <button v-on:click="signOut" class="Input-item Input-item--button">
+                {{- translator.translate('sign.out') -}}
+            </button>
+        {% else %}
+            <a v-on:click="toggleAuthModal('sign-up-form')"><i
+                        class="fa fa-user"></i> {{ translator.translate('sign.up') }}</a> / <a
+                v-on:click="toggleAuthModal('sign-in-form')">{{ translator.translate('sign.in') }}</a>
+        {% endif %}
+    </div>
+    <a class="Navigation-logo" href="{{ url('home') }}">
+        Site
+    </a>
+    <ul class="Navigation-list">
+        <li class="Navigation-item">
+            <a class="Navigation-link" href="{{ url('tag', {'tagSlug': 'all'}) }}">
+                {{- translator.translate('games.all') -}}
+            </a>
+        </li>
+        {% for tag in tags if tag.featured %}
+            <li class="Navigation-item">
+                <a class="Navigation-link" href="{{ url('tag', {'tagSlug': tag.slug(locale.language)}) }}">
+                    {{- tag.name(locale.language) -}}
+                </a>
+            </li>
+        {% endfor %}
+        <li v-bind:class="{'is-opened': isCategoriesVisible}" class="Navigation-item">
+            <div class="Navigation-composed" v-on:click="toggleCategories">
+                <a class="Navigation-link Navigation-link--dashed">{{ translator.translate('categories') }}</a>
+                <i class="Navigation-icon fa fa-angle-down fa-3x"></i>
+            </div>
+        </li>
+    </ul>
+    <div v-cloak v-show="isCategoriesVisible" class="NavigationBox">
+        <a class="u-ellipsis NavigationBox-item" href="{{ url('tag', {'tagSlug': 'all'}) }}">
+            {{- translator.translate('games.all') -}}
+        </a>
+        {% for tag in tags %}
+            <a class="u-ellipsis NavigationBox-item" href="{{ url('tag', {'tagSlug': tag.slug(locale.language)}) }}">
+                {{- tag.name(locale.language) -}}
+            </a>
+        {% endfor %}
+    </div>
+</nav>

@@ -1,0 +1,36 @@
+<div>
+    <form v-on:submit.prevent="postData(false)">
+        <label class="Label">Enabled:<input class="Input" type="checkbox" v-model="response.data.enabled"></label>
+        <label class="Label">Featured:<input class="Input" type="checkbox" v-model="response.data.featured"></label>
+
+        <fieldset>
+            <legend>Name</legend>
+            <label class="Label" v-for="locale in settings.locales">
+                ${locale.language}:
+                <input class="Input" type="text" v-model="response.data.tagNames[locale.language].translation">
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Slug</legend>
+            <label class="Label" v-for="locale in settings.locales">
+                ${locale.language}:
+                <input class="Input" type="text" v-model="response.data.tagNames[locale.language].slug">
+                <a v-on:click="generateSlug(response.data.tagNames[locale.language])"><i class="fa fa-refresh"></i></a>
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Description</legend>
+            <label class="Label" v-for="locale in settings.locales">
+                ${locale.language}:
+                <input class="Input" type="text" v-model="response.data.tagNames[locale.language].description">
+            </label>
+        </fieldset>
+
+        <div v-for="(id, description) in response.data.descriptions">
+            ${description.language} <textarea type="text" v-model="description.translation"></textarea>
+        </div>
+
+        <button>Save</button>
+        <button v-show="!isNew" v-on:click="remove" type="button">Delete</button>
+    </form>
+</div>

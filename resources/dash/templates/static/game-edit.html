@@ -1,0 +1,41 @@
+<div>
+    <form v-on:submit.prevent="postData(false)">
+        <label class="Label">Image:<img class="Input" v-bind:src="response.data.thumbnail"></label>
+        <label class="Label">Enabled:<input class="Input" type="checkbox" v-model="response.data.enabled"></label>
+        <label class="Label">Title:<input class="Input" type="text" v-model="response.data.name"></label>
+        <label class="Label">Slug:<input class="Input" type="text" v-model="response.data.slug"></label>
+        <label class="Label">Type:<input class="Input" type="text" v-model="response.data.type"></label>
+        <label class="Label">Link:<input class="Input" type="text" v-model="response.data.url"></label>
+        <label class="Label">Width:<input class="Input" type="text" v-model="response.data.width"></label>
+        <label class="Label">Height:<input class="Input" type="text" v-model="response.data.height"></label>
+
+        <fieldset>
+            <legend>Description</legend>
+            <label class="Label" v-for="locale in settings.locales">
+                ${locale.language}:
+                <textarea class="Input" type="text" v-model="response.data.descriptions[locale.language].translation"></textarea>
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Tags:</legend>
+            <ul>
+                <li v-for="tag in response.data.tags">
+                    <a v-on:click="removeTag(tag)"><i class="fa fa-times"></i></a>
+                    ${tag.tagNames['en'].translation}
+                </li>
+            </ul>
+            <br>
+            <hr>
+            <select v-model="selectedTag">
+                <option v-for="tag in response.included.tags" v-bind:value="tag">
+                    ${tag.tagNames['en'].translation}
+                </option>
+            </select>
+            <a v-if="selectedTag" v-on:click="addTag"><i class="fa fa-plus"></i></a>
+        </fieldset>
+
+        <button>Save</button>
+        <button v-show="!isNew" v-on:click="deleteData(false)" type="button">Delete</button>
+    </form>
+</div>
