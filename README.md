@@ -4,9 +4,9 @@
 Basically, this application is a catalogue of playable games. The application can detect device type and show only supported games accordingly.
 By default it looks like this:
 
-![game_screen_480](https://cloud.githubusercontent.com/assets/10897933/17218759/a4cb5246-54f1-11e6-9a7f-202e42a5ff76.jpg)
-![game_screen_1180](https://cloud.githubusercontent.com/assets/10897933/17218760/a4cbf1ce-54f1-11e6-9428-36117df38d6d.jpg)
-![game_screen](https://cloud.githubusercontent.com/assets/10897933/17218761/a4cc219e-54f1-11e6-9967-185a0d186b82.jpg)
+![game_screen_480](https://cloud.githubusercontent.com/assets/10897933/17218759/a4cb5246-54f1-11e6-9a7f-202e42a5ff76.jpg | width=200)
+![game_screen_1180](https://cloud.githubusercontent.com/assets/10897933/17218760/a4cbf1ce-54f1-11e6-9428-36117df38d6d.jpg | width=200)
+![game_screen](https://cloud.githubusercontent.com/assets/10897933/17218761/a4cc219e-54f1-11e6-9967-185a0d186b82.jpg | width=200)
 
 You really want to apply a different design or, at least, change typography and colors.
 
