@@ -62,4 +62,4 @@ docker-compose up
 ```
 
 ## Copyright and license
-Code and documentation copyright 2016 Cudev Ltd. Code released under [the MIT license](https://github.com/cudev/browser-games-portal/blob/master/LICENSE).
+Code and documentation copyright 2016 CUDEV. Code released under [the MIT license](https://github.com/cudev/browser-games-portal/blob/master/LICENSE).
