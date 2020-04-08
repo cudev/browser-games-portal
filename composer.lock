@@ -1,10 +1,9 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "hash": "b2a5de090bb04fd77145c16e751fd158",
     "content-hash": "cd056a406b8ed6076e45e88cd6698fef",
     "packages": [
         {
@@ -59,7 +58,7 @@
                 "social",
                 "twitter"
             ],
-            "time": "2016-04-20 23:23:26"
+            "time": "2016-04-20T23:23:26+00:00"
         },
         {
             "name": "aura/installer-default",
@@ -100,7 +99,7 @@
                 "aura",
                 "installer"
             ],
-            "time": "2012-11-26 21:35:57"
+            "time": "2012-11-26T21:35:57+00:00"
         },
         {
             "name": "aura/intl",
@@ -178,7 +177,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2014-08-24 00:00:00"
+            "time": "2014-08-24T00:00:00+00:00"
         },
         {
             "name": "aura/session",
@@ -242,7 +241,7 @@
                 "session",
                 "sessions"
             ],
-            "time": "2015-03-27 18:33:22"
+            "time": "2015-03-27T18:33:22+00:00"
         },
         {
             "name": "cocur/slugify",
@@ -306,7 +305,7 @@
                 "slug",
                 "slugify"
             ],
-            "time": "2016-07-10 13:06:05"
+            "time": "2016-07-10T13:06:05+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -333,7 +332,8 @@
                 "MIT"
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
-            "time": "2014-12-30 15:22:37"
+            "abandoned": "psr/container",
+            "time": "2014-12-30T15:22:37+00:00"
         },
         {
             "name": "cudev/game-feed",
@@ -380,7 +380,7 @@
                 "games",
                 "spilgames"
             ],
-            "time": "2016-06-01 16:38:56"
+            "time": "2016-06-01T16:38:56+00:00"
         },
         {
             "name": "cudev/ordinary-mail",
@@ -403,7 +403,7 @@
             },
             "description": "Simple PHPMailer wrapper",
             "homepage": "https://github.com/cudev/ordinary-mail",
-            "time": "2016-06-02 17:43:06"
+            "time": "2016-06-02T17:43:06+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -471,7 +471,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2015-08-31 12:32:49"
+            "time": "2015-08-31T12:32:49+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -541,7 +541,7 @@
                 "cache",
                 "caching"
             ],
-            "time": "2015-12-31 16:37:02"
+            "time": "2015-12-31T16:37:02+00:00"
         },
         {
             "name": "doctrine/collections",
@@ -607,7 +607,7 @@
                 "collections",
                 "iterator"
             ],
-            "time": "2015-04-14 22:21:58"
+            "time": "2015-04-14T22:21:58+00:00"
         },
         {
             "name": "doctrine/common",
@@ -680,7 +680,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2015-12-25 13:18:31"
+            "time": "2015-12-25T13:18:31+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -751,7 +751,7 @@
                 "persistence",
                 "queryobject"
             ],
-            "time": "2016-01-05 22:11:12"
+            "time": "2016-01-05T22:11:12+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -818,7 +818,7 @@
                 "singularize",
                 "string"
             ],
-            "time": "2015-11-06 14:35:42"
+            "time": "2015-11-06T14:35:42+00:00"
         },
         {
             "name": "doctrine/instantiator",
@@ -872,7 +872,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "doctrine/lexer",
@@ -926,19 +926,19 @@
                 "lexer",
                 "parser"
             ],
-            "time": "2014-09-09 13:34:57"
+            "time": "2014-09-09T13:34:57+00:00"
         },
         {
             "name": "doctrine/orm",
             "version": "v2.5.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/doctrine/doctrine2.git",
+                "url": "https://github.com/doctrine/orm.git",
                 "reference": "bc4ddbfb0114cb33438cc811c9a740d8aa304aab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/bc4ddbfb0114cb33438cc811c9a740d8aa304aab",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/bc4ddbfb0114cb33438cc811c9a740d8aa304aab",
                 "reference": "bc4ddbfb0114cb33438cc811c9a740d8aa304aab",
                 "shasum": ""
             },
@@ -1002,19 +1002,19 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-01-05 21:34:58"
+            "time": "2016-01-05T21:34:58+00:00"
         },
         {
             "name": "facebook/php-sdk-v4",
             "version": "5.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
+                "url": "https://github.com/facebook/php-graph-sdk.git",
                 "reference": "c60fba1fe1de62db1e0776d32fc2fb778189459c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/c60fba1fe1de62db1e0776d32fc2fb778189459c",
+                "url": "https://api.github.com/repos/facebook/php-graph-sdk/zipball/c60fba1fe1de62db1e0776d32fc2fb778189459c",
                 "reference": "c60fba1fe1de62db1e0776d32fc2fb778189459c",
                 "shasum": ""
             },
@@ -1059,7 +1059,8 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2016-05-18 22:04:36"
+            "abandoned": "facebook/graph-sdk",
+            "time": "2016-05-18T22:04:36+00:00"
         },
         {
             "name": "firebase/php-jwt",
@@ -1102,19 +1103,19 @@
             ],
             "description": "A simple library to encode and decode JSON Web Tokens (JWT) in PHP. Should conform to the current spec.",
             "homepage": "https://github.com/firebase/php-jwt",
-            "time": "2015-07-22 18:31:08"
+            "time": "2015-07-22T18:31:08+00:00"
         },
         {
             "name": "google/apiclient",
             "version": "v2.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/google/google-api-php-client.git",
+                "url": "https://github.com/googleapis/google-api-php-client.git",
                 "reference": "984f6a96297242e901bde518489374a9dec209df"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/984f6a96297242e901bde518489374a9dec209df",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client/zipball/984f6a96297242e901bde518489374a9dec209df",
                 "reference": "984f6a96297242e901bde518489374a9dec209df",
                 "shasum": ""
             },
@@ -1161,7 +1162,7 @@
             "keywords": [
                 "google"
             ],
-            "time": "2016-06-24 16:44:42"
+            "time": "2016-06-24T16:44:42+00:00"
         },
         {
             "name": "google/apiclient-services",
@@ -1169,12 +1170,12 @@
             "target-dir": "Google/Service",
             "source": {
                 "type": "git",
-                "url": "https://github.com/google/google-api-php-client-services.git",
+                "url": "https://github.com/googleapis/google-api-php-client-services.git",
                 "reference": "b2faa3d37da789be2cdcf0c5acae3896a0cda958"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client-services/zipball/b2faa3d37da789be2cdcf0c5acae3896a0cda958",
+                "url": "https://api.github.com/repos/googleapis/google-api-php-client-services/zipball/b2faa3d37da789be2cdcf0c5acae3896a0cda958",
                 "reference": "b2faa3d37da789be2cdcf0c5acae3896a0cda958",
                 "shasum": ""
             },
@@ -1196,19 +1197,19 @@
             "keywords": [
                 "google"
             ],
-            "time": "2016-06-02 18:58:36"
+            "time": "2016-06-02T18:58:36+00:00"
         },
         {
             "name": "google/auth",
             "version": "v0.9",
             "source": {
                 "type": "git",
-                "url": "https://github.com/google/google-auth-library-php.git",
+                "url": "https://github.com/googleapis/google-auth-library-php.git",
                 "reference": "47c3c6bece495e58381a21fed13a735bd23a51cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-auth-library-php/zipball/47c3c6bece495e58381a21fed13a735bd23a51cc",
+                "url": "https://api.github.com/repos/googleapis/google-auth-library-php/zipball/47c3c6bece495e58381a21fed13a735bd23a51cc",
                 "reference": "47c3c6bece495e58381a21fed13a735bd23a51cc",
                 "shasum": ""
             },
@@ -1244,7 +1245,7 @@
                 "google",
                 "oauth2"
             ],
-            "time": "2016-06-01 22:07:52"
+            "time": "2016-06-01T22:07:52+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1306,7 +1307,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2016-03-21 20:02:09"
+            "time": "2016-03-21T20:02:09+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -1357,7 +1358,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-05-18 16:56:05"
+            "time": "2016-05-18T16:56:05+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -1415,19 +1416,19 @@
                 "stream",
                 "uri"
             ],
-            "time": "2016-06-24 23:00:38"
+            "time": "2016-06-24T23:00:38+00:00"
         },
         {
             "name": "hashids/hashids",
             "version": "1.0.6",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ivanakimov/hashids.php.git",
+                "url": "https://github.com/vinkla/hashids.git",
                 "reference": "6bd7ceffb2ccddef6cd64e88f1717f97d131cc3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ivanakimov/hashids.php/zipball/6bd7ceffb2ccddef6cd64e88f1717f97d131cc3c",
+                "url": "https://api.github.com/repos/vinkla/hashids/zipball/6bd7ceffb2ccddef6cd64e88f1717f97d131cc3c",
                 "reference": "6bd7ceffb2ccddef6cd64e88f1717f97d131cc3c",
                 "shasum": ""
             },
@@ -1472,7 +1473,7 @@
                 "obfuscate",
                 "youtube"
             ],
-            "time": "2016-01-21 04:26:38"
+            "time": "2016-01-21T04:26:38+00:00"
         },
         {
             "name": "intervention/image",
@@ -1534,7 +1535,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2016-04-26 14:08:40"
+            "time": "2016-04-26T14:08:40+00:00"
         },
         {
             "name": "league/flysystem",
@@ -1617,7 +1618,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2016-06-03 19:11:39"
+            "time": "2016-06-03T19:11:39+00:00"
         },
         {
             "name": "mobiledetect/mobiledetectlib",
@@ -1671,7 +1672,7 @@
                 "mobile detector",
                 "php mobile detect"
             ],
-            "time": "2016-04-24 09:47:16"
+            "time": "2016-04-24T09:47:16+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1749,7 +1750,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2016-07-02 14:02:10"
+            "time": "2016-07-02T14:02:10+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -1796,7 +1797,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2015-11-04 20:07:17"
+            "time": "2015-11-04T20:07:17+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -1839,7 +1840,7 @@
                 "router",
                 "routing"
             ],
-            "time": "2016-06-12 19:08:51"
+            "time": "2016-06-12T19:08:51+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -1886,7 +1887,7 @@
                 }
             ],
             "description": "Composer plugin that provides efficient querying for installed package versions (no runtime IO)",
-            "time": "2016-04-23 17:52:40"
+            "time": "2016-04-23T17:52:40+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
@@ -1950,7 +1951,7 @@
                 "proxy pattern",
                 "service proxies"
             ],
-            "time": "2016-07-01 12:11:54"
+            "time": "2016-07-01T12:11:54+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -1998,28 +1999,45 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-04-03 06:00:07"
+            "time": "2016-04-03T06:00:07+00:00"
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "v5.2.16",
+            "version": "v5.2.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a"
+                "reference": "dde1db116511aa4956389d75546c5be4c2beb2a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a",
-                "reference": "1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/dde1db116511aa4956389d75546c5be4c2beb2a6",
+                "reference": "dde1db116511aa4956389d75546c5be4c2beb2a6",
                 "shasum": ""
             },
             "require": {
+                "ext-ctype": "*",
                 "php": ">=5.0.0"
             },
             "require-dev": {
-                "phpdocumentor/phpdocumentor": "*",
-                "phpunit/phpunit": "4.7.*"
+                "doctrine/annotations": "1.2.*",
+                "jms/serializer": "0.16.*",
+                "phpdocumentor/phpdocumentor": "2.*",
+                "phpunit/phpunit": "4.8.*",
+                "symfony/debug": "2.8.*",
+                "symfony/filesystem": "2.8.*",
+                "symfony/translation": "2.8.*",
+                "symfony/yaml": "2.8.*",
+                "zendframework/zend-cache": "2.5.1",
+                "zendframework/zend-config": "2.5.1",
+                "zendframework/zend-eventmanager": "2.5.1",
+                "zendframework/zend-filter": "2.5.1",
+                "zendframework/zend-i18n": "2.5.1",
+                "zendframework/zend-json": "2.5.1",
+                "zendframework/zend-math": "2.5.1",
+                "zendframework/zend-serializer": "2.5.*",
+                "zendframework/zend-servicemanager": "2.5.*",
+                "zendframework/zend-stdlib": "2.5.1"
             },
             "suggest": {
                 "league/oauth2-google": "Needed for Google XOAUTH2 authentication"
@@ -2058,7 +2076,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2016-06-06 09:09:37"
+            "time": "2018-11-15T22:32:31+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -2150,7 +2168,7 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2016-05-13 01:15:21"
+            "time": "2016-05-13T01:15:21+00:00"
         },
         {
             "name": "predis/predis",
@@ -2200,7 +2218,7 @@
                 "predis",
                 "redis"
             ],
-            "time": "2016-06-16 16:22:20"
+            "time": "2016-06-16T16:22:20+00:00"
         },
         {
             "name": "psr/cache",
@@ -2246,7 +2264,7 @@
                 "psr",
                 "psr-6"
             ],
-            "time": "2015-12-11 02:52:07"
+            "time": "2015-12-11T02:52:07+00:00"
         },
         {
             "name": "psr/http-message",
@@ -2295,7 +2313,7 @@
                 "request",
                 "response"
             ],
-            "time": "2015-05-04 20:22:00"
+            "time": "2015-05-04T20:22:00+00:00"
         },
         {
             "name": "psr/log",
@@ -2333,7 +2351,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2012-12-21T11:40:51+00:00"
         },
         {
             "name": "respect/validation",
@@ -2397,7 +2415,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2016-05-07 18:54:08"
+            "time": "2016-05-07T18:54:08+00:00"
         },
         {
             "name": "roave/security-advisories",
@@ -2516,7 +2534,7 @@
                 }
             ],
             "description": "Prevents installation of composer packages with known security vulnerabilities: no API, simply require it",
-            "time": "2016-05-25 05:33:34"
+            "time": "2016-05-25T05:33:34+00:00"
         },
         {
             "name": "robmorgan/phinx",
@@ -2577,7 +2595,7 @@
                 "migrations",
                 "phinx"
             ],
-            "time": "2016-06-17 15:51:03"
+            "time": "2016-06-17T15:51:03+00:00"
         },
         {
             "name": "symfony/asset",
@@ -2632,7 +2650,7 @@
             ],
             "description": "Symfony Asset Component",
             "homepage": "https://symfony.com",
-            "time": "2016-05-13 18:06:41"
+            "time": "2016-05-13T18:06:41+00:00"
         },
         {
             "name": "symfony/config",
@@ -2685,7 +2703,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:41:56"
+            "time": "2016-06-29T05:41:56+00:00"
         },
         {
             "name": "symfony/console",
@@ -2745,7 +2763,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 07:02:31"
+            "time": "2016-06-29T07:02:31+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -2798,7 +2816,7 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:41:56"
+            "time": "2016-06-29T05:41:56+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -2847,7 +2865,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:41:56"
+            "time": "2016-06-29T05:41:56+00:00"
         },
         {
             "name": "symfony/inflector",
@@ -2904,7 +2922,7 @@
                 "symfony",
                 "words"
             ],
-            "time": "2016-06-08 11:24:07"
+            "time": "2016-06-08T11:24:07+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -2963,7 +2981,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-05-18 14:26:46"
+            "time": "2016-05-18T14:26:46+00:00"
         },
         {
             "name": "symfony/polyfill-php70",
@@ -3022,7 +3040,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2016-05-18 14:26:46"
+            "time": "2016-05-18T14:26:46+00:00"
         },
         {
             "name": "symfony/property-access",
@@ -3084,7 +3102,7 @@
                 "property path",
                 "reflection"
             ],
-            "time": "2016-06-29 05:41:56"
+            "time": "2016-06-29T05:41:56+00:00"
         },
         {
             "name": "symfony/serializer",
@@ -3156,7 +3174,7 @@
             ],
             "description": "Symfony Serializer Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:41:56"
+            "time": "2016-06-29T05:41:56+00:00"
         },
         {
             "name": "symfony/translation",
@@ -3220,7 +3238,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:41:56"
+            "time": "2016-06-29T05:41:56+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -3269,7 +3287,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2016-06-29 05:41:56"
+            "time": "2016-06-29T05:41:56+00:00"
         },
         {
             "name": "tedivm/stash",
@@ -3329,7 +3347,7 @@
                 "redis",
                 "sessions"
             ],
-            "time": "2016-02-10 22:23:16"
+            "time": "2016-02-10T22:23:16+00:00"
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -3376,7 +3394,7 @@
             ],
             "description": "CssToInlineStyles is a class that enables you to convert HTML-pages/files into HTML-pages/files with inline styles. This is very useful when you're sending emails.",
             "homepage": "https://github.com/tijsverkoyen/CssToInlineStyles",
-            "time": "2015-12-08 16:14:14"
+            "time": "2015-12-08T16:14:14+00:00"
         },
         {
             "name": "twig/twig",
@@ -3437,7 +3455,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-05-30 09:11:59"
+            "time": "2016-05-30T09:11:59+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -3487,7 +3505,7 @@
                 "env",
                 "environment"
             ],
-            "time": "2016-06-14 14:14:52"
+            "time": "2016-06-14T14:14:52+00:00"
         },
         {
             "name": "zendframework/zend-code",
@@ -3540,7 +3558,8 @@
                 "code",
                 "zf2"
             ],
-            "time": "2016-06-30 22:35:27"
+            "abandoned": "laminas/laminas-code",
+            "time": "2016-06-30T22:35:27+00:00"
         },
         {
             "name": "zendframework/zend-diactoros",
@@ -3590,7 +3609,8 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2016-03-17 18:02:05"
+            "abandoned": "laminas/laminas-diactoros",
+            "time": "2016-03-17T18:02:05+00:00"
         },
         {
             "name": "zendframework/zend-escaper",
@@ -3634,7 +3654,8 @@
                 "escaper",
                 "zf2"
             ],
-            "time": "2016-06-30 19:48:38"
+            "abandoned": "laminas/laminas-escaper",
+            "time": "2016-06-30T19:48:38+00:00"
         },
         {
             "name": "zendframework/zend-eventmanager",
@@ -3688,7 +3709,8 @@
                 "events",
                 "zf2"
             ],
-            "time": "2016-02-18 20:53:00"
+            "abandoned": "laminas/laminas-eventmanager",
+            "time": "2016-02-18T20:53:00+00:00"
         },
         {
             "name": "zendframework/zend-expressive",
@@ -3758,7 +3780,8 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2016-01-28 15:49:52"
+            "abandoned": "mezzio/mezzio",
+            "time": "2016-01-28T15:49:52+00:00"
         },
         {
             "name": "zendframework/zend-expressive-fastroute",
@@ -3809,7 +3832,8 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2016-06-16 13:37:19"
+            "abandoned": "mezzio/mezzio-fastroute",
+            "time": "2016-06-16T13:37:19+00:00"
         },
         {
             "name": "zendframework/zend-expressive-helpers",
@@ -3865,7 +3889,8 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2016-01-18 19:53:28"
+            "abandoned": "mezzio/mezzio-helpers",
+            "time": "2016-01-18T19:53:28+00:00"
         },
         {
             "name": "zendframework/zend-expressive-router",
@@ -3918,7 +3943,8 @@
                 "psr",
                 "psr-7"
             ],
-            "time": "2016-01-18 20:10:33"
+            "abandoned": "mezzio/mezzio-router",
+            "time": "2016-01-18T20:10:33+00:00"
         },
         {
             "name": "zendframework/zend-expressive-template",
@@ -3967,7 +3993,8 @@
                 "expressive",
                 "template"
             ],
-            "time": "2016-01-28 15:44:23"
+            "abandoned": "mezzio/mezzio-template",
+            "time": "2016-01-28T15:44:23+00:00"
         },
         {
             "name": "zendframework/zend-expressive-twigrenderer",
@@ -4024,7 +4051,8 @@
                 "psr-7",
                 "twig"
             ],
-            "time": "2016-02-01 17:53:19"
+            "abandoned": "mezzio/mezzio-twigrenderer",
+            "time": "2016-02-01T17:53:19+00:00"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -4079,7 +4107,8 @@
                 "servicemanager",
                 "zf"
             ],
-            "time": "2016-06-01 16:50:58"
+            "abandoned": "laminas/laminas-servicemanager",
+            "time": "2016-06-01T16:50:58+00:00"
         },
         {
             "name": "zendframework/zend-stdlib",
@@ -4124,7 +4153,8 @@
                 "stdlib",
                 "zf2"
             ],
-            "time": "2016-04-12 21:19:36"
+            "abandoned": "laminas/laminas-stdlib",
+            "time": "2016-04-12T21:19:36+00:00"
         },
         {
             "name": "zendframework/zend-stratigility",
@@ -4176,7 +4206,8 @@
                 "middleware",
                 "psr-7"
             ],
-            "time": "2016-03-24 22:10:30"
+            "abandoned": "laminas/laminas-stratigility",
+            "time": "2016-03-24T22:10:30+00:00"
         }
     ],
     "packages-dev": [
@@ -4238,7 +4269,7 @@
                 "whoops",
                 "zf2"
             ],
-            "time": "2016-04-07 06:16:25"
+            "time": "2016-04-07T06:16:25+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",
@@ -4316,7 +4347,7 @@
                 "phpcs",
                 "standards"
             ],
-            "time": "2016-05-30 22:24:32"
+            "time": "2016-05-30T22:24:32+00:00"
         },
         {
             "name": "symfony/var-dumper",
@@ -4379,7 +4410,7 @@
                 "debug",
                 "dump"
             ],
-            "time": "2016-06-29 05:41:56"
+            "time": "2016-06-29T05:41:56+00:00"
         }
     ],
     "aliases": [],
